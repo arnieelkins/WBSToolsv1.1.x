@@ -37,7 +37,7 @@ import sys
 import time
 
 # included for PyInstaller
-import wx.gizmos, wx.lib.calendar 
+#import wx.gizmos, wx.lib.calendar
 
 from App import App
 app = App(SourceURL=remotehost)
@@ -102,7 +102,7 @@ app.ui.CommentSelectorForm = dabo.ui.createClass("ui" + os.sep + "CommentSelecto
 app.DefaultForm = app.ui.StudentsForm
 app.FormsToOpen = [app.DefaultForm]
 app.startupForms()
-if app.MainForm != None:
+if app.MainForm is not None:
 	userName = str(app.dbConnectionName).upper()
 	app.MainForm.Caption = 'WBSTools version ' + str(app.getAppInfo('appVersion') + ' user = ' + userName)
 	app.MainForm.Icon = "icons/wbs.ico"

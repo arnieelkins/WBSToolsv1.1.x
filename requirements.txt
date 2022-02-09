@@ -1,0 +1,4 @@
+dabo~=0.9.16
+reportlab~=3.5.59
+py2exe~=0.6.9
+setuptools~=18.1
