@@ -7,7 +7,7 @@
 import os
 import datetime
 import traceback
-
+import dabo
 
 ## *!* ## Dabo Code ID: dDropdownList-dPanel-655
 def onValueChanged(self, evt):
@@ -18,7 +18,7 @@ def onValueChanged(self, evt):
 
 ## *!* ## Dabo Code ID: dDropdownList-dPanel-502
 def onValueChanged(self, evt):
-	#TypeOfBaptism
+	# TypeOfBaptism
 	self.Form.autoSave()
 
 
@@ -32,14 +32,14 @@ def onHit(self, evt):
 
 ## *!* ## Dabo Code ID: dTextBox-dPanel-806
 def onValueChanged(self, evt):
-	#ChurchName
+	# ChurchName
 	self.Form.autoSave()
 
 
 
 ## *!* ## Dabo Code ID: dTextBox-dPanel-672
 def onValueChanged(self, evt):
-	#Religion
+	# Religion
 	self.Form.autoSave()
 
 
@@ -65,14 +65,14 @@ def onHit(self, evt):
 
 ## *!* ## Dabo Code ID: dTextBox-dPanel-963
 def onValueChanged(self, evt):
-	#Phone1
+	# Phone1
 	self.Form.autoSave()
 
 
 
 ## *!* ## Dabo Code ID: dDateTextBox-dPanel
 def onValueChanged(self, evt):
-	#Birthdate
+	# Birthdate
 	self.Form.autoSave()
 
 
@@ -89,28 +89,28 @@ def afterInitAll(self):
 
 ## *!* ## Dabo Code ID: dDropdownList-dPanel-729
 def onValueChanged(self, evt):
-	#HasBeenBaptized
+	# HasBeenBaptized
 	self.Form.autoSave()
 
 
 
 ## *!* ## Dabo Code ID: dDropdownList-dPanel-467
 def onValueChanged(self, evt):
-	#Gender
+	# Gender
 	self.Form.autoSave()
 
 
 
 ## *!* ## Dabo Code ID: dEditBox-dPanel-112
 def onValueChanged(self, evt):
-	#Notes
+	# Notes
 	self.Form.autoSave()
 
 
 
 ## *!* ## Dabo Code ID: dDropdownList-dPanel-84
 def onValueChanged(self, evt):
-	#WBSBefore
+	# WBSBefore
 	self.Form.autoSave()
 
 
@@ -136,7 +136,7 @@ def onMouseRightDown(self, evt):
 
 
 def onValueChanged(self, evt):
-	#StudentContactsRecNo
+	# StudentContactsRecNo
 	self.Form.autoSave()
 
 
@@ -150,16 +150,15 @@ def onHit(self, evt):
 
 ## *!* ## Dabo Code ID: dSpinner-dPanel
 def onValueChanged(self, evt):
-	#Age
+	# Age
 	self.Form.autoSave()
 
 
 
 ## *!* ## Dabo Code ID: dTextBox-dPanel
 def onValueChanged(self, evt):
-	#StudentID
+	# StudentID
 	self.Form.autoSave()
-
 
 
 ## *!* ## Dabo Code ID: dGrid-dPage-208
@@ -196,21 +195,21 @@ def onHit(self, evt):
 
 ## *!* ## Dabo Code ID: dComboBox-dPanel
 def onValueChanged(self, evt):
-	#Occupation
+	# Occupation
 	self.Form.autoSave()
 
 
 
 ## *!* ## Dabo Code ID: dTextBox-dPanel-102
 def onValueChanged(self, evt):
-	#WBSID
+	# WBSID
 	self.Form.autoSave()
 
 
 
 ## *!* ## Dabo Code ID: dDropdownList-dPanel-487
 def onValueChanged(self, evt):
-	#RequestedBaptism
+	# RequestedBaptism
 	self.Form.autoSave()
 
 
@@ -245,21 +244,21 @@ def onHit(self, evt):
 
 ## *!* ## Dabo Code ID: dDropdownList-dPanel-19
 def onValueChanged(self, evt):
-	#MaritalStatus
+	# MaritalStatus
 	self.Form.autoSave()
 
 
 
 ## *!* ## Dabo Code ID: dEditBox-dPanel-364
 def onValueChanged(self, evt):
-	#PostalAddress
+	# PostalAddress
 	self.Form.autoSave()
 
 
 
 ## *!* ## Dabo Code ID: dTextBox-dPanel-169
 def onValueChanged(self, evt):
-	#City
+	# City
 	self.Form.autoSave()
 
 
@@ -268,7 +267,7 @@ def onValueChanged(self, evt):
 def onHit(self, evt):
 	try:
 		returnCode = self.Form.save()
-		if returnCode == None:
+		if returnCode is None:
 			dlg = dabo.ui.info('Save successful!')
 		else:
 			dabo.ui.exclaim('returnCode from save was not what I expected!\nreturnCode = ' + str(returnCode) + '\nPlease make a note of what you were attempting to do and the returnCode and contact the author!')
@@ -305,7 +304,7 @@ def onHit(self, evt):
 
 ## *!* ## Dabo Code ID: dTextBox-dPanel-660
 def onValueChanged(self, evt):
-	#StudentFirstName
+	# StudentFirstName
 	self.Form.autoSave()
 
 
@@ -326,20 +325,20 @@ def onMouseRightDown(self, evt):
 
 
 def onValueChanged(self, evt):
-	#StudentTeachersRecNo
+	# StudentTeachersRecNo
 	self.Form.autoSave()
 
 
 
 ## *!* ## Dabo Code ID: dButton-dPage
 def afterInitAll(self):
-	#Lookup button on lookup tab
+	# Lookup button on lookup tab
 	self.SetDefault()
 
 def onHit(self, evt):
 	# Lookup button on Lookup tab
 	bizObj = self.Form.PrimaryBizobj
-	#bizObj.LogEvents = ['All']
+	# bizObj.LogEvents = ['All']
 	studentID = self.Form.StudentIDText.Value
 	fName = self.Form.FirstNameText.Value
 	lName = self.Form.LastNameText.Value
@@ -442,7 +441,7 @@ def onGridMouseLeftDoubleClick(self, evt):
 
 ## *!* ## Dabo Code ID: dTextBox-dPanel-959
 def onValueChanged(self, evt):
-	#Email
+	# Email
 	self.Form.autoSave()
 
 
@@ -461,7 +460,7 @@ def onHit(self, evt):
 
 ## *!* ## Dabo Code ID: dButton-dPage-839
 def onHit(self, evt):
-	#Clear button
+	# Clear button
 	bizObj = self.Form.PrimaryBizobj
 	self.Form.StudentIDText.Value = ""
 	self.Form.FirstNameText.Value = ""
@@ -490,14 +489,14 @@ def onValueChanged(self, evt):
 
 ## *!* ## Dabo Code ID: dTextBox-dPanel-561
 def onValueChanged(self, evt):
-	#StudentsLastName
+	# StudentsLastName
 	self.Form.autoSave()
 
 
 
 ## *!* ## Dabo Code ID: dTextBox-dPanel-185
 def onValueChanged(self, evt):
-	#Country
+	# Country
 	self.Form.autoSave()
 
 
@@ -525,8 +524,8 @@ def afterInitAll(self):
 	self.RowColorOdd = "azure"
 	self.RowColorEven = "whitesmoke"
 	self.AlternateRowColoring = True
-	#self.Columns[3].Visible = True
-	#self.Columns[4].Visible = True
+	# self.Columns[3].Visible = True
+	# self.Columns[4].Visible = True
 	self.update()
 
 
@@ -568,7 +567,7 @@ def afterInit(self):
 
 ## *!* ## Dabo Code ID: dTextBox-dPanel-357
 def onValueChanged(self, evt):
-	#Phone2
+	# Phone2
 	self.Form.autoSave()
 
 
@@ -601,7 +600,7 @@ def afterInitAll(self):
 	self.Caption = self.Caption + '-- WBSTools version ' + str(app.getAppInfo('appVersion') + ' user = ' + userName)
 	print 'attempting to set focus to Lookup tab\n'
 	self.StudentLookupPage.showContainingPage()
-	#self.requery()
+	# self.requery()
 
 
 def autoSave(self):

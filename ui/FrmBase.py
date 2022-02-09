@@ -20,7 +20,7 @@ class FrmBase(datanav.Form):
 	def setupMenu(self):
 		super(FrmBase, self).setupMenu()
 		self.fillFileOpenMenu()
-		#self.fillReportsMenu()
+		# self.fillReportsMenu()
 
 
 	def fillFileOpenMenu(self):

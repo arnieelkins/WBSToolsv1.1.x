@@ -11,6 +11,7 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.fonts import addMapping
 
+
 class App(dApp):
     def initProperties(self):
         # Manages how preferences are saved
@@ -28,16 +29,16 @@ class App(dApp):
         self.setAppInfo("appDescription", _("Tools for grading World Bible School lessons and recording \
                                            student information in a MySQL database"))
 
-        ## Information about the developer of the software:
+        # Information about the developer of the software:
         self.setAppInfo("authorName", "Arnie Elkins")
         self.setAppInfo("authorEmail", "wbstools@pm.me")
         self.setAppInfo("authorURL", "https://monrovia.org/wbs")
 
-        ## Set app version information:
+        # Set app version information:
         # This is the central place to keep your application's version updated.
-        __version__ = "1.1.1.0"
+        __version__ = "1.1.1.1"
         self.setAppInfo("appVersion", __version__)
-        #self.CryptoKey = "WeHoldTheseTruths"
+        # self.CryptoKey = "WeHoldTheseTruths"
         # Crypto connection not working -- will check AWE 2022.02.08
         # pycrypto is not supported, changed to use the 'near drop-in replacement' pyCryptodome
         self.registerFonts(os.getcwd())
@@ -45,13 +46,12 @@ class App(dApp):
 
     def setup(self):
         if dabo.MDI:
-            #self.MainFormClass = dabo.ui.createForm("ui/StudentsForm.cdxml")
+            # self.MainFormClass = dabo.ui.createForm("ui/StudentsForm.cdxml")
             self.MainFormClass = dabo.ui.dFormMain
         else:
             # no need for main form in SDI mode
             self.MainFormClass = None
         super(App, self).setup()
-
 
     def getTempDir(self):
         self.TempDir = tempfile.mkdtemp()
@@ -69,21 +69,24 @@ class App(dApp):
                     handle.close()
                     os.remove('testfile')
                     self.PreferenceManager.setValue("TempDir", self.TempDir)
-                    return(True)
+                    return True
                 except Exception, e:
-                    dabo.ui.exclaim("Oh No!  An exception while writing the file!  This is a Really, Really Bad Thing!\n" + str(traceback.format_exc()))
+                    dabo.ui.exclaim(
+                        "Oh No!  An exception while writing the file!  This is a Really, Really Bad Thing!\n" + str(
+                            traceback.format_exc(e)))
             else:
-                response = dabo.ui.areYouSure(message = "TempDir is defined as " + str(self.TempDir) + " but it does not exist.  Attempt to create it?",
-                                                defaultNo = True,
-                                                cancelButton = False,
-                                                requestUserAttention=True)
+                response = dabo.ui.areYouSure(message="TempDir is defined as " + str(
+                    self.TempDir) + " but it does not exist.  Attempt to create it?",
+                                              defaultNo=True,
+                                              cancelButton=False,
+                                              requestUserAttention=True)
                 if response:
                     try:
                         os.mkdir(self.TempDir)
                         self.PreferenceManager.setValue("TempDir", self.TempDir)
-                        return(True)
-                    except:
-                        dabo.ui.exclaim('Unable to create a temp directory!!')
+                        return True
+                    except Exception, e:
+                        dabo.ui.exclaim('Unable to create a temp directory!!'+str(traceback.format_exc(e)))
                         dabo.ui.exclaim("Well alrighty then, since I can't work without one, I quit!")
                         sys.exit(1)
 
@@ -94,12 +97,11 @@ class App(dApp):
             if ext == ".ttf":
                 name = psname
                 name_lower = name.lower()
-                pdfmetrics.registerFont(TTFont(psname,
-                        os.path.join(homedir, "resources", fname)))
+                pdfmetrics.registerFont(TTFont(psname, os.path.join(homedir, "resources", fname)))
                 try:
                     idx = name_lower.index("oblique")
                     italic = True
-                    name = name[:idx] + name[idx+len("oblique"):]
+                    name = name[:idx] + name[idx + len("oblique"):]
                     name_lower = name.lower()
                 except ValueError:
                     italic = False
@@ -108,7 +110,7 @@ class App(dApp):
                     try:
                         idx = name_lower.index("italic")
                         italic = True
-                        name = name[:idx] + name[idx+len("italic"):]
+                        name = name[:idx] + name[idx + len("italic"):]
                         name_lower = name.lower()
                     except ValueError:
                         italic = False
@@ -116,7 +118,7 @@ class App(dApp):
                 try:
                     idx = name_lower.index("bold")
                     bold = True
-                    name = name[:idx] + name[idx+len("bold"):]
+                    name = name[:idx] + name[idx + len("bold"):]
                 except ValueError:
                     bold = False
 
@@ -126,5 +128,3 @@ class App(dApp):
         for font_mapping in sorted(font_mappings):
             addMapping(*font_mapping)
             print font_mapping
-                            
-
