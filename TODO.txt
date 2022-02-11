@@ -1,0 +1,13 @@
+1. Occupation field does not allow anything but "student" (from the dropdown).
+    We need to allow entering of other occupations, or add some to the dropdown list,
+    such as farmer, teacher, doctor, nurse, businessman, and businesswoman.
+
+2. Age field defaults to "0". This field needs to be blank if we have no age.
+
+3. Birthday does not save.
+
+4. Numbers below 10 should be spelled (In comments sent back to students).
+
+5. After saving a new student record, a default page shows instead of the page which was saved. 
+    This is an intermittent problem that seldom happens. It might be related to the problem we just had,
+    since the default page was the same in both cases.
