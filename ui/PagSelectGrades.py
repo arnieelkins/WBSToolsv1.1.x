@@ -237,7 +237,7 @@ class PagSelectGrades(PagSelectBase):
         lbl.Caption =  _("&Limit:")
         limTxt = SelectTextBox(panel)
         if len(limTxt.Value) == 0:
-            limTxt\.Value = None
+            limTxt.Value = None
         self.selectFields["limit"] = {"ctrl" : limTxt}
         gsz.append(lbl, alignment="right")
         gsz.append(limTxt)
