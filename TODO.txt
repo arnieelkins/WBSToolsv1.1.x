@@ -1,11 +1,34 @@
+2022-02-11
+It is possible that all the forms should have been created as classes, instead of whatever I did to make 
+things work. I plead complete ignorance of the framework. :) At any rate, I need to investigate further,
+and see if I can determine the original intent of the framework authors.
+
+It appears that I somehow made this app work without having any real idea what I was doing. The concept of
+having classes that do the work, rather than building a more or less random mishmash of ui code mixed with
+db code, was beyond my comprehension at the time I wrote the app. No wonder, as I really had no clue about
+objects and what they were supposed to be used for in 2012! It is a wonder that this code ever worked at all!
+
+The ui stuff appears to be ok, although I need to strip out the SQL stuff and put it in the db classes that
+I will have to write. I am not sure it is worth the effort, as I will need to create a totally new webapp
+in the near future if I am going to have any hope of saving the development of the app.  At this point it would
+be a tremendous effort to explain this code to anyone, much less have someone who is not versed in dabo come 
+in cold to make changes. I think writing a new app, using things like SQLAlchemy to handle the DB stuff, could be
+the best use of my time. I think I can mkae the changes that have been requested, and then I need to start
+a new project. The only saving grace of redoing the DB stuff in dabo would be if it would significantly 
+improve the clarity of the code, to the point that someone else could maintain the current app. It might reduce 
+the fragility of the code, but that would have to be proven, and I am not sure how to do that without rewriting
+all the DB code. An alternative to writing dabo DB code that would be thrown out with a new version would be to
+write the necessary DB code in something that could be moved to a new app. That would be complicated by the
+necessity of writing the DB code with Python 2, and then trying to port that code to the new Python 3 app.
+
 ==========
 Priority 1, highest of the high!
 
 Forms retrieve at most 1000 records at a time.  Currently there is no way to get the rest.  Need to
 find out how to deal with datasets or frames. This is a basic requirement of DB apps, and I really need
 to understand how this works.
-==========
 
+==========
 Requirements.txt file needs to be populated with ALL the requirements necessary to run the app from 
 source, as well as compile the program to an executable for Windows. While in theory it is possible to
 run the program from the source on Mac and Linux, I do not have a working solution for packaging the app
@@ -19,6 +42,7 @@ needed for further modification of the application. In addition to the requireme
 and store in Git the files necessary to build said environment. Many of the tools have been updated well
 past the versions that work with the others, ie. the dabo framwork and Python 2.7.6. I know for a fact
 that versions of Python including 2.7.9 are NOT compatible.
+
 ==========
 Current user requests as of 2022-02-11:
 

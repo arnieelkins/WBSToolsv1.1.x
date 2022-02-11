@@ -30,7 +30,8 @@ studentteachersrecno,
 studenttown,
 studentwbsbefore,
 studentwbsid,
-gradedata, gradestudentsrecno
+gradedata, 
+gradestudentsrecno
 FROM teachers,
 contacts,
 students left join 

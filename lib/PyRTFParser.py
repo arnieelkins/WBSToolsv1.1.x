@@ -1438,13 +1438,12 @@ class RTFTowxRichTextCtrlParser:
         return result
              
     def process_text(self, txt):
-	""" Process a text string """
-
-##        # Please ignore this commented code.  It's stuff I might need to resurrect for Transana, but might not.
-##        if len(txt) > 0:
-##	    # Since timecode, and up/down intonation symbols are different between
-##	    # OSX and windows, we need to perform substitution while loading a document.
-##	    if ('unicode' in wx.PlatformInfo) and ('wxMac' in wx.PlatformInfo):
+        """ Process a text string """
+##      # Please ignore this commented code.  It's stuff I might need to resurrect for Transana, but might not.
+##      #if len(txt) > 0:
+##        # Since timecode, and up/down intonation symbols are different between
+##        # OSX and windows, we need to perform substitution while loading a document.
+##        if ('unicode' in wx.PlatformInfo) and ('wxMac' in wx.PlatformInfo):
 ##
 ##                if DEBUG:
 ##                    print "RTFParser.process_text(): '%s' .. " % txt,
@@ -1452,13 +1451,13 @@ class RTFTowxRichTextCtrlParser:
 ##                        print ord(x),
 ##                    print
 ##                
-##		# This (array.array('B', txt).tolist()) is supposed to be the most efficient way 
-##		# of converting a string to a list of integers.  JB
-##		# Unfortunately, it requires a string, not a Unicode object.  We'll need a less
-##		# efficient alternative for Unicode.  DKW
+##        # This (array.array('B', txt).tolist()) is supposed to be the most efficient way 
+##        # of converting a string to a list of integers.  JB
+##        # Unfortunately, it requires a string, not a Unicode object.  We'll need a less
+##        # efficient alternative for Unicode.  DKW
 ##
 ##                # Check the type of the txt object.  If it's a string ...
-##		if isinstance(txt, str):
+##        if isinstance(txt, str):
 ##                    # ... convert it efficiently to a list of integers
 ##                    intList = array.array('B', txt).tolist()
 ##                # If txt is Unicode ...
@@ -1469,54 +1468,54 @@ class RTFTowxRichTextCtrlParser:
 ##                    for x in txt:
 ##                        # ... and add the integer value for each character to the integer list
 ##                        intList.append(ord(x))
-##		
-##		try:
-##		    # all the windows special characters begin with \xc2 (#194)
-##		    position = intList.index(194)
-##		    
-##		    # test for timecode
+##        
+##        try:
+##            # all the windows special characters begin with \xc2 (#194)
+##            position = intList.index(194)
+##            
+##            # test for timecode
 ### It appears that with wxPython 2.8.0.1, the Mac can now handle the proper timecode character!
-###		    if intList[position+1] == 164:
-##			
-###			if DEBUG:
-###			    print "RTFParser.process_text():  Mac Unicode Substitution - Time Code."
+###            if intList[position+1] == 164:
+##            
+###            if DEBUG:
+###                print "RTFParser.process_text():  Mac Unicode Substitution - Time Code."
 ##
-###			newString = txt[0:position] + unicode('\xc2\xa7', 'utf8')
-###			txt = newString
-##		    # Test for up intonation
-###		    elif intList[position+1] == 173:
-##		    if intList[position+1] == 173:
-##			if DEBUG:
-##			    print "RTFParser.process_text(): Mac Unicode Substitution - Up Arrow."
+###            newString = txt[0:position] + unicode('\xc2\xa7', 'utf8')
+###            txt = newString
+##            # Test for up intonation
+###            elif intList[position+1] == 173:
+##            if intList[position+1] == 173:
+##            if DEBUG:
+##                print "RTFParser.process_text(): Mac Unicode Substitution - Up Arrow."
 ##
-##			newString = txt[0:position] + unicode('\xe2\x89\xa0', 'utf8')
-##			txt = newString
-##		    # Test for down intonation
-##		    elif intList[position+1] == 175:
-##			
-##			if DEBUG:
-##			    print "RTFParser.process_text(): Mac Unicode Substitution - Down Arrow."
+##            newString = txt[0:position] + unicode('\xe2\x89\xa0', 'utf8')
+##            txt = newString
+##            # Test for down intonation
+##            elif intList[position+1] == 175:
+##            
+##            if DEBUG:
+##                print "RTFParser.process_text(): Mac Unicode Substitution - Down Arrow."
 ##
-##			newString = txt[0:position] + unicode('\xc3\x98', 'utf8')
-##			txt = newString
-##		    # Test for closed dot (hi dot)  (194 149 is 1.24 encoding, 194 183 is 2.05 encoding)
-##		    # but the 2.05 encoding doesn't work here because we don't want the text to be in Symbol font.
-##		    # That is handled in RichTextEditCtrl.py's __ParseRTFText() method.
-##		    elif (intList[position+1] == 149):
-##			
-##			if DEBUG:
-##			    print "RTFParser.process_text(): Mac Unicode Substitution - closed dot."
+##            newString = txt[0:position] + unicode('\xc3\x98', 'utf8')
+##            txt = newString
+##            # Test for closed dot (hi dot)  (194 149 is 1.24 encoding, 194 183 is 2.05 encoding)
+##            # but the 2.05 encoding doesn't work here because we don't want the text to be in Symbol font.
+##            # That is handled in RichTextEditCtrl.py's __ParseRTFText() method.
+##            elif (intList[position+1] == 149):
+##            
+##            if DEBUG:
+##                print "RTFParser.process_text(): Mac Unicode Substitution - closed dot."
 ##
-##			newString = unicode('\xe2\x80\xa2', 'utf8')  # txt[0:position] + unicode('\xe2\x80\xa2', 'utf8')
-##			txt = newString
-##		    # DON'T Test for open dot (whisper)  (194 176 is 2.05 encoding)
-##		    # but the 2.05 encoding doesn't work here because we don't want the text to be in Symbol font.
-##		    # That is handled in RichTextEditCtrl.py's __ParseRTFText() method.
+##            newString = unicode('\xe2\x80\xa2', 'utf8')  # txt[0:position] + unicode('\xe2\x80\xa2', 'utf8')
+##            txt = newString
+##            # DON'T Test for open dot (whisper)  (194 176 is 2.05 encoding)
+##            # but the 2.05 encoding doesn't work here because we don't want the text to be in Symbol font.
+##            # That is handled in RichTextEditCtrl.py's __ParseRTFText() method.
 ##
-##		except ValueError:
-##		    i = 1
-##	
-##	    do = DocObject()
+##        except ValueError:
+##            i = 1
+##    
+##        do = DocObject()
 ##          do.text = txt                
 ##          self.stream.append(do)
 
@@ -2078,12 +2077,12 @@ class RTFTowxRichTextCtrlParser:
                            (self.buffer[self.index + 3] in '0123456789ABCDEFabcdef') and \
                            (self.buffer[self.index + 4] != '\\'):
                             # Skip past the unicode character digits
- 	                    self.index += 4
+                            self.index += 4
                         # This gets hit, I guess, when the the 3rd and 4th characters are NOT HEX, or when the 5th character IS
                         # a slash.  Can that be right?
- 	                # This one catches other unicode characters, such as Chinese characters.  Without this, Chinese doesn't
- 	                # import correctly.
- 	                else:
+                        # This one catches other unicode characters, such as Chinese characters.  Without this, Chinese doesn't
+                        # import correctly.
+                        else:
                             # First, look for a backslash and an apostrophe
                             while (self.buffer[self.index : self.index + 2] == "\\'"):
                                 # Skip those

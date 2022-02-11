@@ -17,18 +17,18 @@ from dabo.dLocalize import _
 dabo.ui.loadUI("wx")
 print sys.platform
 if sys.platform[:3] == "win":
-	dabo.MDI = True
+    dabo.MDI = True
 
 if sys.platform == "darwin":
-	print "running on OSX"
-	dabo.MDI = True
-	# hack for locale error on OSX
-	import locale
-	print "imported locale"
-	print locale.getdefaultlocale()
-	locale.setlocale(locale.LC_ALL, "en_US.UTF-8")
-	print "locale.setlocale successful"
-	print locale.getdefaultlocale()
+    print "running on OSX"
+    dabo.MDI = True
+    # hack for locale error on OSX
+    import locale
+    print "imported locale"
+    print locale.getdefaultlocale()
+    locale.setlocale(locale.LC_ALL, "en_US.UTF-8")
+    print "locale.setlocale successful"
+    print locale.getdefaultlocale()
 import db
 import biz
 import ui
@@ -55,19 +55,19 @@ app.setup()
 app.getTempDir()
 print "TempDir = " + str(app.TempDir) + " " + str(type(app.TempDir))
 if not app.testTempDir:
-	app.getTempDir()
+    app.getTempDir()
 app.MainFormClass = app.ui.FrmMain
 app.PreferenceManager.setValue("fontsize", 11)
 app.NoneDisplay = ""
 # Set up a global connection to the database that all bizobjs will share:
 try:
-	app.dbConnectionName = "wbs_monro_user"
-	app.dbConnection = app.getConnectionByName(app.dbConnectionName)
+    app.dbConnectionName = "wbs_monro_user"
+    app.dbConnection = app.getConnectionByName(app.dbConnectionName)
 except:
-	dabo.ui.exclaim("Error connecting to database, please check the network before trying again!" + str(traceback.format_exc()))
-	time.sleep(5)
-	
-	sys.exit(1)
+    dabo.ui.exclaim("Error connecting to database, please check the network before trying again!" + str(traceback.format_exc()))
+    time.sleep(5)
+    
+    sys.exit(1)
 #app.dbConnection.LogEvents = ['All']
 
 
@@ -76,15 +76,15 @@ except:
 # passed on the command line, they will be opened instead of the default one
 # as long as they exist.
 if sys.platform == "darwin":
-	print "running on OSX"
-	dabo.MDI = True
-	# hack for locale error on OSX
-	import locale
-	print "imported locale"
-	print locale.getdefaultlocale()
-	locale.setlocale(locale.LC_ALL, "en_US.UTF-8")
-	print "locale.setlocale successful"
-	print locale.getdefaultlocale()
+    print "running on OSX"
+    dabo.MDI = True
+    # hack for locale error on OSX
+    import locale
+    print "imported locale"
+    print locale.getdefaultlocale()
+    locale.setlocale(locale.LC_ALL, "en_US.UTF-8")
+    print "locale.setlocale successful"
+    print locale.getdefaultlocale()
 
 app.ui.AnswersForm = dabo.ui.createClass("ui" + os.sep + "AnswersForm.cdxml")
 app.ui.AttachmentsForm = dabo.ui.createClass("ui" + os.sep + "AttachmentsForm.cdxml")
@@ -99,12 +99,13 @@ app.ui.TeachersForm = dabo.ui.createClass("ui" + os.sep + "TeachersForm.cdxml")
 app.ui.PrintOrPreviewForm = dabo.ui.createClass("ui" + os.sep + "PrintOrPreviewForm.cdxml")
 app.ui.LessonSelector = dabo.ui.createClass("ui" + os.sep + "LessonSelector.cdxml")
 app.ui.CommentSelectorForm = dabo.ui.createClass("ui" + os.sep + "CommentSelectorForm.cdxml")
+app.ui.DuplicateStudentForm = dabo.ui.createClass("ui" + os.sep + "DuplicateStudentForm.cdxml")
 app.DefaultForm = app.ui.StudentsForm
 app.FormsToOpen = [app.DefaultForm]
 app.startupForms()
 if app.MainForm is not None:
-	userName = str(app.dbConnectionName).upper()
-	app.MainForm.Caption = 'WBSTools version ' + str(app.getAppInfo('appVersion') + ' user = ' + userName)
-	app.MainForm.Icon = "icons/wbs.ico"
+    userName = str(app.dbConnectionName).upper()
+    app.MainForm.Caption = 'WBSTools version ' + str(app.getAppInfo('appVersion') + ' user = ' + userName)
+    app.MainForm.Icon = "icons/wbs.ico"
 # Start the application event loop:
 app.start()
