@@ -89,9 +89,10 @@ def afterInitAll(self):
     self.OutputScrollPanel.Sizer.prepend(self.HeaderOutBox, proportion=0, layout='expand', border=2)
     # getAnswerData needs the lesson number to look up the answer data
     (self.answerDataSet, totalQuestions) = self.getAnswerData(self.lessonRecNo, self.getBizobj('Answers'))
-    # TIGNa is lessonRecNo 8, which is a copy of lessonRecNo 3 with different question numbers
-    # once we get the data with the right question numbers, we need to update the info to act
-    # as if it is just the normal TIGN data
+    # TIGNa is lessonRecNo 8, which is a copy of lessonRecNo 3 with different question numbers.
+    # Once we get the data with the right question numbers, we need to update the info to act
+    # as if it is just the normal TIGN data. 2022-02-13 == could this still apply? It has been years since the
+    # new 50 question lessons were added, and there have been no issues
     if self.lessonRecNo == 8:
         self.lessonRecNo = 3
         self.lessonShortName = 'TIGN'

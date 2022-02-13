@@ -36,11 +36,14 @@ class App(dApp):
 
         # Set app version information:
         # This is the central place to keep your application's version updated.
-        __version__ = "1.1.1.2"
+        __version__ = "1.1.1.3"
         self.setAppInfo("appVersion", __version__)
-        # self.CryptoKey = "WeHoldTheseTruths"
+        # self.CryptoKey = ""
         # Crypto connection not working -- will check AWE 2022.02.08
-        # pycrypto is not supported, changed to use the 'near drop-in replacement' pyCryptodome
+        # clarification -- connections are not encrypted, it is the saved passwords that are. At this time the passwords in
+        # the .cnxml files are using SimpleCrypt 'obfuscation' rather than encryption. I believe all that needs to be done
+        # is regenerate those files using the CryptoKey that is in the code.
+        # pycrypto is not supported, changed to use the 'near drop-in replacement' pycryptodome
         self.registerFonts(os.getcwd())
         self.Icon = "icons/wbs.ico"
 

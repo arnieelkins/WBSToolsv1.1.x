@@ -60,18 +60,21 @@ class StudentsBizobj(dabo.biz.dBizobj):
                                 "StudentWBSID": 'AL-025',}
         #set bizobj to ignore referential integrity when deleting a child record
         self.deleteChildLogic = 1
+    
     def getContactFullName(self):
         try:
             return self.Record.ContactFirstName + " " + self.Record.ContactLastName
         except:
             dabo.ui.exclaim("Database error!  Please record the error message! " + str(traceback.format_exc()))
             sys.exit(1)
+    
     def getTeacherFullName(self):
         try:
             return self.Record.TeacherFirstName + " " + self.Record.TeacherLastName
         except:
             dabo.ui.exclaim("Database error!  Please record the error message! " + str(traceback.format_exc()))
             sys.exit(1)
+    
     def getStudentFullName(self):
         try:
             return self.Record.StudentFirstName + " " + self.Record.StudentLastName
@@ -81,28 +84,31 @@ class StudentsBizobj(dabo.biz.dBizobj):
                 dabo.ui.exclaim("StudentFirstName = " + str(self.Record.StudentFirstName) + " and StudentLastName = " + str(self.Record.StudentLastName))
                 dabo.ui.exclaim("record number = " + str(self.Record.StudentRecNo))
             sys.exit(1)
+    
     def validateRecord(self):
         """Returning anything other than an empty string from
         this method will prevent the data from being saved.
         """
         app = self.Application
         status = self.getRecordStatus()
+        print 'FORM VALIDATION ============================'
         if 'StudentFirstName' in status or 'StudentLastName' in status:
+            print 'name changed'
             # either first name or last name was just changed, now check to make sure both exist
             firstName = self.Record.StudentFirstName
             print 'firstName = ' + str(firstName)
             if firstName == '' or firstName is None:
-                return error
+                return 'firstname is blank'
             lastName = str(self.Record.StudentLastName)
             print 'lastName = ' + str(lastName)
             if lastName == '' or lastName is None:
-                return 'firstname does not exist'
+                return 'lastname does not exist'
             firstSpace = firstName.find(' ')
             if firstSpace:
                 firstName = firstName[0:firstSpace]
             firstName = firstName.lower() + '%'
             lastName = lastName.lower() + '%'
-            #recNo = str(self.Record.StudentRecNo)
+            recNo = str(self.Record.StudentRecNo)
             tempCursor = self.getTempCursor()
             tempCursor.UserSQL = "select StudentRecNo from Students where StudentFirstName like %s and StudentLastName like %s"
             tempCursor.requery((firstName, lastName,))
@@ -123,11 +129,9 @@ class StudentsBizobj(dabo.biz.dBizobj):
                 # if user clicks Yes, newForm.Accepted will be true
                 if newForm.Accepted:
                     #returning an empty string will save the data
-                    ret = ""
+                    return ""
                 else:
-                    ret = recNo
+                    return recNo
                 newForm.safeDestroy()
-            else:
-                ret = ""
             # Add your business rules here.
-            return ret
+            return ""

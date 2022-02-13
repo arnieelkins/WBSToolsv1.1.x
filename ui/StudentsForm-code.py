@@ -266,16 +266,15 @@ def onValueChanged(self, evt):
 ## *!* ## Dabo Code ID: dButton-dPage-602
 def onHit(self, evt):
     try:
-        returnCode = self.Form.save()
+        returnCode = str(self.Form.save())
         if returnCode is None:
             dlg = dabo.ui.info('Save successful!')
+            self.Form.update()
         else:
-            dabo.ui.exclaim('returnCode from save was not what I expected!\nreturnCode = ' + str(returnCode) + '\nPlease make a note of what you were attempting to do and the returnCode and contact the author!')
+            dabo.ui.exclaim('returnCode from save was not what I expected!\nreturnCode = ' + returnCode + '\nPlease make a note of what you were attempting to do and the returnCode and contact the author!')
             return()
-        self.Form.update()
-    except:
-        dabo.ui.exclaim("Uh oh, something went wrong!  Better check the log file!" + str(traceback.format_exc()))
-
+    except dException, e:
+        dabo.ui.exclaim("Uh oh, something went wrong!  Better check the log file!" + str(traceback.format_exc(e)))
 
 
 ## *!* ## Dabo Code ID: dButton-dPanel-904
@@ -285,7 +284,7 @@ def onHit(self, evt):
     choices = ('Intro', 'GHS', 'TIGN', 'KJ', 'BWS', 'FOG', 'LLL')
     choiceDict = {'Intro':1, 'GHS':2, 'TIGN':3, 'KJ':4, 'BWS':5, 'FOG':6, 'LLL':7}
     lesson = dabo.ui.getChoice(choices, message='Choose a lesson', caption='Choose a lesson', defaultPos=None)
-    if not lesson == None:
+    if lesson is not None:
         bizObj = self.Form.getBizobj('Grades')
         recordNumber = self.Form.PrimaryBizobj.Record['StudentRecNo']
         import datetime
@@ -295,9 +294,11 @@ def onHit(self, evt):
         bizObj.setFieldVal("GradeDateGraded", currentDate)
         bizObj.setFieldVal("GradeLessonsRecNo", choiceDict[lesson])
         try:
-            dlg = dabo.ui.info('Output from bizObj save operation = ' + str(bizObj.save()) + '.\n')
-        except:
-            dabo.ui.exclaim("Uh oh, something went wrong!  Better check the log file!" + str(traceback.format_exc()))
+            result = str(bizObj.save())
+            if result != '' or result != None:
+                dlg = dabo.ui.info('Save successsful')
+        except dException, e:
+            dabo.ui.exclaim("Uh oh, something went wrong!  Better check the log file!" + str(traceback.format_exc(e)))
         self.Form.requery()
 
 
@@ -450,11 +451,16 @@ def onValueChanged(self, evt):
 def onHit(self, evt):
     # Save Button
     try:
-        dlg = dabo.ui.info('Output from Form.save operation = ' + str(self.Form.save()) + '.\n')
-        self.Form.requery()
-        self.Form.update()
+        returnCode = str(self.Form.save())
+        if returnCode is None:
+            dlg = dabo.ui.info('Save successful!')
+            self.Form.update()
+        else:
+            dabo.ui.exclaim('returnCode from save was not what I expected!\nreturnCode = ' + returnCode + '\nPlease make a note of what you were attempting to do and the returnCode and contact the author!')
+            return()
     except:
         dabo.ui.exclaim("Uh oh, something went wrong!  Better check the log file!" + str(traceback.format_exc()))
+
 
 
 
@@ -537,10 +543,16 @@ def initProperties(self):
 def onGridCellEdited(self, evt):
     # save the grade data if the user edits anything
     try:
-        dlg = dabo.ui.info('Output from Form.save operation = ' + str(self.Form.save(dataSource='Grades')) + '.\n')
-        self.Form.requery()
+        returnCode = str(self.Form.save())
+        if returnCode is None:
+            dlg = dabo.ui.info('Save successful!')
+            self.Form.update()
+        else:
+            dabo.ui.exclaim('returnCode from save was not what I expected!\nreturnCode = ' + returnCode + '\nPlease make a note of what you were attempting to do and the returnCode and contact the author!')
+            return()
     except:
         dabo.ui.exclaim("Uh oh, something went wrong!  Better check the log file!" + str(traceback.format_exc()))
+
 
 
 
@@ -661,14 +673,14 @@ def deleteGrade(self):
                     if returnCode == None:
                         dlg = dabo.ui.info('Delete successful!')
                     else:
-                        dabo.ui.exclaim('returnCode from delete was not what I expected!\nreturnCode = ' + str(returnCode) + '\nPlease make a note of what you were attempting to do and the returnCode and contact the author!')
+                        dabo.ui.exclaim('returnCode from DELETE was not what I expected!\nreturnCode = ' + str(returnCode) + '\nPlease make a note of what you were attempting to do and the returnCode and contact the author!')
                         return()
                 else:
-                    dabo.ui.exclaim('returnCode from save was not what I expected!\nreturnCode = ' + str(returnCode) + '\nPlease make a note of what you were attempting to do and the returnCode and contact the author!')
+                    dabo.ui.exclaim('returnCode from SAVE was not what I expected!\nreturnCode = ' + str(returnCode) + '\nPlease make a note of what you were attempting to do and the returnCode and contact the author!')
                     return()
                 self.requery()
-            except:
-                dabo.ui.exclaim("Uh oh, something went wrong!  Better check the log file!" + str(traceback.format_exc()))
+            except dException, e:
+                dabo.ui.exclaim("Uh oh, something went wrong!  Better check the log file!" + str(traceback.format_exc(e)))
 
 
 def fillEditPrefsMenu(self):
@@ -717,7 +729,7 @@ def onUploadButton(self):
     studentRecNo = studentBizobj.Record.StudentRecNo
     contactRecNo = studentBizobj.Record.StudentContactsRecNo
     result = dabo.ui.getFile(multiple=True)
-    if not result == None or result == '':
+    if not result is None or result is True:
         for filePath in result:
             (pathOnly, attachmentName) = os.path.split(filePath)
             timeStamp = datetime.datetime.now()
@@ -736,13 +748,13 @@ def onUploadButton(self):
                 bizobj.Record.AttachmentType = 4
                 bizobj.Record.AttachmentCreated = timeStamp
                 result = bizobj.save()
-                if result == True or result == None:
+                if result is None or result == '':
                     dabo.ui.info("Attachment saved successfully!")
                 else:
                     dabo.ui.exclaim("Uh oh, something went wrong!")
                     print bizobj.Record
-            except Exception, e:
-                dabo.ui.exclaim("Hey, something went wrong!\n" + str(traceback.format_exc()))
+            except dException, e:
+                dabo.ui.exclaim("Hey, something went wrong!\n" + str(traceback.format_exc(e)))
 
 
 def openAttachmentsForm(self):

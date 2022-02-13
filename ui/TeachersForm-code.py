@@ -52,7 +52,7 @@ def onHit(self, evt):
 ## *!* ## Dabo Code ID: dButton-dPanel-35
 def onHit(self, evt):
     # Delete Picture button
-    app = self.Application
+    # app = self.Application
     self.Form.onDeleteTeacherPicture(self.Form.PrimaryBizobj.Record.TeacherRecNo)
 
 
@@ -67,7 +67,6 @@ def onHit(self, evt):
 ## *!* ## Dabo Code ID: dButton-dPanel-880
 def onHit(self, evt):
     # Choose Picture button
-    app = self.Application
     self.Form.onChooseTeacherPicture(self.Form.PrimaryBizobj.Record.TeacherRecNo)
 
 
@@ -83,7 +82,7 @@ def onHit(self, evt):
 def addTeacher(self):
     try:
         self.new()
-        dlg = dabo.ui.info('Output from save operation = ' + str(self.save()) + '.\n')
+        dlg = dabo.ui.info('Add successful')
         self.requery()
     except:
         dabo.ui.exclaim('Uh oh, something went wrong!  Better check the log file!')
