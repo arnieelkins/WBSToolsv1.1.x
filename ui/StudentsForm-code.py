@@ -452,11 +452,11 @@ def onHit(self, evt):
     # Save Button
     try:
         returnCode = str(self.Form.save())
-        if returnCode is None:
+        if returnCode is None or returnCode is True:
             dlg = dabo.ui.info('Save successful!')
             self.Form.update()
         else:
-            dabo.ui.exclaim('returnCode from save was not what I expected!\nreturnCode = ' + returnCode + '\nPlease make a note of what you were attempting to do and the returnCode and contact the author!')
+            dabo.ui.exclaim('Save NOT successful!\nreturnCode = ' + returnCode + '\nPlease make a note of what you were attempting to do and the returnCode and contact the author!')
             return()
     except:
         dabo.ui.exclaim("Uh oh, something went wrong!  Better check the log file!" + str(traceback.format_exc()))

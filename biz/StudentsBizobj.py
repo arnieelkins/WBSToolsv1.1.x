@@ -55,9 +55,9 @@ class StudentsBizobj(dabo.biz.dBizobj):
         self.DefaultValues = {"StudentID":None,
                                 "StudentTeachersRecNo": 1,
                                 "StudentContactsRecNo": 1,
-                                "StudentBirthdate": '0000-00-00',
+                                "StudentBirthdate": '',
                                 "StudentAge": 0,
-                                "StudentWBSID": 'AL-025',}
+                                "StudentWBSID": 'AL-091',}
         #set bizobj to ignore referential integrity when deleting a child record
         self.deleteChildLogic = 1
     
@@ -89,7 +89,7 @@ class StudentsBizobj(dabo.biz.dBizobj):
         """Returning anything other than an empty string from
         this method will prevent the data from being saved.
         """
-        app = self.Application
+        #app = self.Application
         status = self.getRecordStatus()
         print 'FORM VALIDATION ============================'
         if 'StudentFirstName' in status or 'StudentLastName' in status:
@@ -98,11 +98,13 @@ class StudentsBizobj(dabo.biz.dBizobj):
             firstName = self.Record.StudentFirstName
             print 'firstName = ' + str(firstName)
             if firstName == '' or firstName is None:
-                return 'firstname is blank'
+                print 'firstName is blank'
+                return
             lastName = str(self.Record.StudentLastName)
             print 'lastName = ' + str(lastName)
             if lastName == '' or lastName is None:
-                return 'lastname does not exist'
+                print 'firstName is blank'
+                return
             firstSpace = firstName.find(' ')
             if firstSpace:
                 firstName = firstName[0:firstSpace]
@@ -134,4 +136,4 @@ class StudentsBizobj(dabo.biz.dBizobj):
                     return recNo
                 newForm.safeDestroy()
             # Add your business rules here.
-            return ""
+        return ""

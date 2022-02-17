@@ -451,8 +451,29 @@ def openCommentSelectorForm(self):
     print "self.gradeRecord start"
     print self.gradeRecord
     print "self.gradeRecord end"
+    NumberMissed = int(self.gradeRecord['totalQuestions'] - self.gradeRecord['numberCorrect'])
+    # Spell out number missed if below 10
+    if NumberMissed) >= 1 and NumberMissed <=9:
+        if NumberMissed == 1:
+            MissedString = 'one'
+        if NumberMissed == 2:
+            MissedString = 'two'
+        if NumberMissed == 3:
+            MissedString = 'three'
+        if NumberMissed == 4:
+            MissedString = 'four'
+        if NumberMissed == 5:
+            MissedString = 'five'
+        if NumberMissed == 6:
+            MissedString = 'six'
+        if NumberMissed == 7:
+            MissedString = 'seven'
+        if NumberMissed == 8:
+            MissedString = 'eight'
+        if NumberMissed == 9:
+            MissedString = 'nine'
     newForm.TextTags = ({'<ContactFullName>':self.gradeRecord['contactFullName'],
-                        '<NumberOfQuestionsMissed>':str(self.gradeRecord['totalQuestions'] - self.gradeRecord['numberCorrect']),
+                        '<NumberOfQuestionsMissed>':MissedString,
                         '<ContactFirstName>':self.gradeRecord['contactFirstName']})
     newForm.lessonShortName = self.gradeRecord['lessonShortName']
     newForm.buildCommentDictList(self.PrimaryBizobj)

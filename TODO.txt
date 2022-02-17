@@ -68,8 +68,8 @@ Current user requests as of 2022-02-11:
     --Agreed. However, we had issues with this, and were unable to determine what to do. This does not
     seem like a field that should not allow nulls, but I am unsure whether the framework allows display
     of null values. If it returns null, it should be possible to display a "-" or something as a way of
-    indicating that we do not know. --2022-02-13 ETA - This is a limitation of the spin control, or at leat my understanding of it.
-    It is set up ton only allo numeric values, so it had been decided long ago that a 0 was preferable to other numbers
+    indicating that we do not know. --2022-02-13 ETA - This is a limitation of the spin control, or at least my understanding of it.
+    It is set up to only allow numeric values, so it had been decided long ago that a 0 was preferable to other numbers
     if the age is unknown.  After some investigation of the dSpinner class, I have verified that anything other than a numeric
     value will not be desiplayed. The DB code stores nulls, but the control will not allow them, so null = 0.  Since this is a
     limitation imposed by the framework, the only real solution is to replace dSpinner with another control.
@@ -108,11 +108,11 @@ DONE(once upon a time, need to revisit this problem. 2022-02-11) - New Student d
     only for specific situations?
 
 ==========
-When a student name is added or changed, the uplicate name search should ONLY happen when there is both
+When a student name is added or changed, the duplicate name search should ONLY happen when there is both
 a FirstName and a LastName in the current record. When adding students for the first time, the check is
 run when EITHER FirstName or LastName is entered. This creates a list with potentially VAST numbers of 
-matches!
-
+matches! 2022-02-15 EDIT When a name is entered in one field, the code throws an error and fails to save. 
+returnCode is None is not the only thing to check!
 ================================================================
 To delete a student, you must first get rid of all the grade records belonging to the student, then
 delete the student record.
