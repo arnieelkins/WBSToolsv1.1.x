@@ -453,7 +453,7 @@ def openCommentSelectorForm(self):
     print "self.gradeRecord end"
     NumberMissed = int(self.gradeRecord['totalQuestions'] - self.gradeRecord['numberCorrect'])
     # Spell out number missed if below 10
-    if NumberMissed) >= 1 and NumberMissed <=9:
+    if NumberMissed >= 1 and NumberMissed <=9:
         if NumberMissed == 1:
             MissedString = 'one'
         if NumberMissed == 2:
