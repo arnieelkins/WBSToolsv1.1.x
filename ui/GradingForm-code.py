@@ -456,25 +456,28 @@ def openCommentSelectorForm(self):
     if NumberMissed >= 1 and NumberMissed <=9:
         if NumberMissed == 1:
             MissedString = 'one'
-        if NumberMissed == 2:
+        elif NumberMissed == 2:
             MissedString = 'two'
-        if NumberMissed == 3:
+        elif NumberMissed == 3:
             MissedString = 'three'
-        if NumberMissed == 4:
+        elif NumberMissed == 4:
             MissedString = 'four'
-        if NumberMissed == 5:
+        elif NumberMissed == 5:
             MissedString = 'five'
-        if NumberMissed == 6:
+        elif NumberMissed == 6:
             MissedString = 'six'
-        if NumberMissed == 7:
+        elif NumberMissed == 7:
             MissedString = 'seven'
-        if NumberMissed == 8:
+        elif NumberMissed == 8:
             MissedString = 'eight'
-        if NumberMissed == 9:
+        elif NumberMissed == 9:
             MissedString = 'nine'
+        else:
+            MissedString = str(NumberMissed)
     newForm.TextTags = ({'<ContactFullName>':self.gradeRecord['contactFullName'],
                         '<NumberOfQuestionsMissed>':MissedString,
-                        '<ContactFirstName>':self.gradeRecord['contactFirstName']})
+                        '<ContactFirstName>':self.gradeRecord['contactFirstName'],
+                        })
     newForm.lessonShortName = self.gradeRecord['lessonShortName']
     newForm.buildCommentDictList(self.PrimaryBizobj)
     newForm.SaveRestorePosition = True
