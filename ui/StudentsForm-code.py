@@ -148,7 +148,7 @@ def onHit(self, evt):
 
 
 
-## *!* ## Dabo Code ID: dSpinner-dPanel
+## *!* ## Dabo Code ID: dTextBox-dPanel
 def onValueChanged(self, evt):
     # Age
     self.Form.autoSave()
@@ -821,9 +821,8 @@ def setTabOrder(self):
     self.OccupationComboBox.MoveAfterInTabOrder(self.GenderDropdownList)
     self.ReligionTextBox.MoveAfterInTabOrder(self.OccupationComboBox)
     self.ChurchNameTextBox.MoveAfterInTabOrder(self.ReligionTextBox)
-    self.AgeSpinner.MoveAfterInTabOrder(self.ChurchNameTextBox)
-    self.BirthdateTextBox.MoveAfterInTabOrder(self.AgeSpinner)
-    self.MaritalStatusDropdownList.MoveAfterInTabOrder(self.BirthdateTextBox)
+    self.AgeTextBox.MoveAfterInTabOrder(self.ChurchNameTextBox)
+    self.MaritalStatusDropdownList.MoveAfterInTabOrder(self.AgeTextBox)
     self.HasBeenBaptizedDropdownList.MoveAfterInTabOrder(self.MaritalStatusDropdownList)
     self.TypeOfBaptismDropdownList.MoveAfterInTabOrder(self.HasBeenBaptizedDropdownList)
     self.RequestedBaptismDropdownList.MoveAfterInTabOrder(self.TypeOfBaptismDropdownList)

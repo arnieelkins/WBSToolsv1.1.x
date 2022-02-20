@@ -42,7 +42,6 @@
 										<dLabel sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'HAlign': 'Right', 'VAlign': 'Bottom'}" Name="RecordNumberLabel" TabStop="False" rowColPos="(0, 2)" Caption="Record Number:" designerClass="controlMix"></dLabel>
 										<dLabel Caption="WBS ID:" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'HAlign': 'Right'}" designerClass="controlMix" rowColPos="(1, 2)"></dLabel>
 										<dLabel Caption="Age:" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'HAlign': 'Right'}" designerClass="controlMix" Name="AgeLabel" rowColPos="(2, 2)"></dLabel>
-										<dLabel Caption="Birthdate:" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'HAlign': 'Right'}" designerClass="controlMix" Name="BirthDateLabel" rowColPos="(3, 2)"></dLabel>
 										<dLabel Caption="Marital Status:" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'HAlign': 'Right'}" designerClass="controlMix" Name="MaritalStatusLabel" rowColPos="(4, 2)"></dLabel>
 										<dLabel Caption="Has Been Baptized?" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'HAlign': 'Right'}" designerClass="controlMix" Name="HasBeenBaptizedLabel" rowColPos="(5, 2)"></dLabel>
 										<dLabel Caption="Type of Baptism:" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'HAlign': 'Right'}" designerClass="controlMix" Name="TypeOfBaptismLabel" rowColPos="(6, 2)"></dLabel>
@@ -55,23 +54,9 @@
 										<dDropdownList code-ID="dDropdownList-dPanel-502" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'HAlign': 'Left', 'ColExpand': True, 'Expand': True}" Name="TypeOfBaptismDropdownList" rowColPos="(6, 3)" Choices="[u&apos;&apos;, u&apos;Immersed&apos;, u&apos;Sprinkled&apos;, u&apos;Poured&apos;, u&apos;Other&apos;]" designerClass="controlMix" DataField="StudentBaptismType" RegID="TypeOfBaptismDropdownList" DataSource="Students"></dDropdownList>
 										<dDropdownList code-ID="dDropdownList-dPanel-729" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'HAlign': 'Left', 'ColExpand': True, 'Expand': True}" Name="HasBeenBaptizedDropdownList" rowColPos="(5, 3)" Value="" Choices="[u&apos;&apos;, u&apos;Yes&apos;, u&apos;No&apos;]" designerClass="controlMix" DataSource="Students" RegID="HasBeenBaptizedDropdownList" DataField="StudentHasBeenBaptized"></dDropdownList>
 										<dDropdownList code-ID="dDropdownList-dPanel-19" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'HAlign': 'Left', 'ColExpand': True, 'Expand': True}" Name="MaritalStatusDropdownList" rowColPos="(4, 3)" Value="" Choices="[u&apos;&apos;, u&apos;Single&apos;, u&apos;Married&apos;]" designerClass="controlMix" DataSource="Students" RegID="MaritalStatusDropdownList" DataField="StudentMaritalStatus"></dDropdownList>
-										<dDateTextBox code-ID="dDateTextBox-dPanel" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'HAlign': 'Left', 'ColExpand': True, 'Expand': True}" Name="BirthdateTextBox" rowColPos="(3, 3)" DataSource="Students" designerClass="controlMix" DataField="StudentBirthdate" RegID="BirthdateTextBox" ToolTipText="Available Keys:
-=============
-T : Today
-+ : Up One Day
-- : Down One Day
-[ : Up One Month
-] : Down One Month
-M : First Day of Month
-N : Clear the date
-H : Last Day of montH
-Y : First Day of Year
-R : Last Day of yeaR
-C: Popup Calendar to Select
-"></dDateTextBox>
 										<dTextBox code-ID="dTextBox-dPanel-102" sizerInfo="{'RowSpan': 1, 'ColSpan': 1}" Name="WBSIDTextBox" rowColPos="(1, 3)" designerClass="controlMix" DataField="StudentWBSID" RegID="WBSIDTextBox" DataSource="Students"></dTextBox>
 										<dTextBox sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'Proportion': 0, 'HAlign': 'Left'}" Name="StudentRecNoTextBox" TabStop="False" rowColPos="(0, 3)" ReadOnly="True" designerClass="controlMix" DataField="StudentRecNo" RegID="StudentRecNoTextBox" DataSource="Students"></dTextBox>
-										<dSpinner code-ID="dSpinner-dPanel" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'HAlign': 'Left', 'Expand': True}" Name="AgeSpinner" rowColPos="(2, 3)" designerClass="controlMix" DataField="StudentAge" RegID="AgeSpinner" DataSource="Students"></dSpinner>
+										<dTextBox code-ID="dTextBox-dPanel" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'HAlign': 'Left', 'Expand': True}" Name="AgeTextBox" rowColPos="(2, 3)" designerClass="controlMix" DataField="StudentAge" RegID="AgeTextBox" DataSource="Students"></dTextBox>
 									</dGridSizer>
 									<dSizer DefaultBorder="3" SlotCount="1" sizerInfo="{'BorderSides': ['All'], 'Proportion': 1, 'HAlign': 'Center', 'VAlign': 'Top', 'Border': 0, 'Expand': True}" designerClass="LayoutSizer" Orientation="Horizontal">
 										<dGridSizer sizerInfo="{'BorderSides': ['All'], 'Proportion': 1, 'HAlign': 'Left', 'VAlign': 'Top', 'Border': 3, 'Expand': True}" Rows="2" designerClass="LayoutGridSizer" Columns="2">
@@ -164,7 +149,6 @@ C: Popup Calendar to Select
 						<dColumn Caption="Teacher" DataField="TeacherFullName" designerClass="controlMix" Order="50" Width="120"></dColumn>
 						<dColumn Caption="WBS ID" DataField="StudentWBSID" designerClass="controlMix" Order="60" Width="113"></dColumn>
 						<dColumn Caption="Age" DataField="StudentAge" designerClass="controlMix" Order="70" Width="80"></dColumn>
-						<dColumn Caption="Birthdate" DataField="StudentBirthdate" designerClass="controlMix" Order="80" Width="81"></dColumn>
 						<dColumn Caption="MaritalStatus" DataField="StudentMaritalStatus" designerClass="controlMix" Order="90" Width="105"></dColumn>
 						<dColumn Caption="Gender" DataField="StudentGender" designerClass="controlMix" Order="100" Width="80"></dColumn>
 						<dColumn Caption="Occupation" DataField="StudentOccupation" designerClass="controlMix" Order="110" Width="94"></dColumn>

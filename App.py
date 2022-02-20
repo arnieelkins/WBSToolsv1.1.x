@@ -36,7 +36,7 @@ class App(dApp):
 
         # Set app version information:
         # This is the central place to keep your application's version updated.
-        __version__ = "1.1.1.4"
+        __version__ = "1.1.1.5"
         self.setAppInfo("appVersion", __version__)
         # self.CryptoKey = ""
         # Crypto connection not working -- will check AWE 2022.02.08

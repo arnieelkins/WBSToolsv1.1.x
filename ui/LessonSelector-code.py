@@ -45,6 +45,11 @@ def onHit(self, evt):
     self.Form.ProcessCheckBoxes(evt)
 
 
+## *!* ## Dabo Code ID: dCheckBox-dPanel-135
+def onHit(self, evt):
+    self.Form.ProcessCheckBoxes(evt)
+
+
 
 ## *!* ## Dabo Code ID: dCheckBox-dPanel
 def onHit(self, evt):
@@ -114,6 +119,7 @@ def afterInitAll(self):
                             self.FOGCheckBox,
                             self.LLLCheckBox,
                             self.TIGN50QCheckBox,
+                            self.TIGN50QaCheckBox,
                             self.GHS50QCheckBox,
                             self.KJ50QCheckBox,
                             self.BWS50QCheckBox,

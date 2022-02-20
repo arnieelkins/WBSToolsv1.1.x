@@ -24,6 +24,7 @@ def onHit(self, evt):
                                     self.Form.LLLCheckBox:os.path.join(app.HomeDirectory, "reports" + os.sep + "LLLGradingForm.rfxml"),
                                     self.Form.GHS50QCheckBox:os.path.join(app.HomeDirectory, "reports" + os.sep + "GHS50QGradingForm.rfxml"),
                                     self.Form.TIGN50QCheckBox:os.path.join(app.HomeDirectory, "reports" + os.sep + "TIGN50QGradingForm.rfxml"),
+                                    self.Form.TIGN50QaCheckBox:os.path.join(app.HomeDirectory, "reports" + os.sep + "TIGN50QaGradingForm.rfxml"),
                                     self.Form.KJ50QCheckBox:os.path.join(app.HomeDirectory, "reports" + os.sep + "KJ50QGradingForm.rfxml"),
                                     self.Form.FOG50QCheckBox:os.path.join(app.HomeDirectory, "reports" + os.sep + "FOG50QGradingForm.rfxml"),
                                     self.Form.BWS50QCheckBox:os.path.join(app.HomeDirectory, "reports" + os.sep + "BWS50QGradingForm.rfxml"),
@@ -77,6 +78,7 @@ def runReport(self, mode):
     """Run the report and then preview or print it."""
     self.requery()
     f = self.write()
+    print "report created. file = " + str(f)
     if mode == "preview":
         reportUtils.previewPDF(f)
     elif mode == "print":
@@ -110,6 +112,7 @@ def onHit(self, evt):
                                     self.Form.LLLCheckBox:os.path.join(app.HomeDirectory, "reports" + os.sep + "LLLGradingForm.rfxml"),
                                     self.Form.GHS50QCheckBox:os.path.join(app.HomeDirectory, "reports" + os.sep + "GHS50QGradingForm.rfxml"),
                                     self.Form.TIGN50QCheckBox:os.path.join(app.HomeDirectory, "reports" + os.sep + "TIGN50QGradingForm.rfxml"),
+                                    self.Form.TIGN50QaCheckBox:os.path.join(app.HomeDirectory, "reports" + os.sep + "TIGN50QaGradingForm.rfxml"),
                                     self.Form.KJ50QCheckBox:os.path.join(app.HomeDirectory, "reports" + os.sep + "KJ50QGradingForm.rfxml"),
                                     self.Form.FOG50QCheckBox:os.path.join(app.HomeDirectory, "reports" + os.sep + "FOG50QGradingForm.rfxml"),
                                     self.Form.BWS50QCheckBox:os.path.join(app.HomeDirectory, "reports" + os.sep + "BWS50QGradingForm.rfxml"),
