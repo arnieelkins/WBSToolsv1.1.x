@@ -267,7 +267,7 @@ def onValueChanged(self, evt):
 def onHit(self, evt):
     try:
         returnCode = str(self.Form.save())
-        if returnCode is None:
+        if returnCode is None or returnCode is True:
             dlg = dabo.ui.info('Save successful!')
             self.Form.update()
         else:
@@ -544,7 +544,7 @@ def onGridCellEdited(self, evt):
     # save the grade data if the user edits anything
     try:
         returnCode = str(self.Form.save())
-        if returnCode is None:
+        if returnCode is None or returnCode is True:
             dlg = dabo.ui.info('Save successful!')
             self.Form.update()
         else:
@@ -668,9 +668,9 @@ def deleteGrade(self):
         if response == True:
             try:
                 returnCode = bizObj.delete()
-                if returnCode == None:
+                if returnCode is None or returnCode is True:
                     returnCode = bizObj.save()
-                    if returnCode == None:
+                    if returnCode == None or returnCode is True:
                         dlg = dabo.ui.info('Delete successful!')
                     else:
                         dabo.ui.exclaim('returnCode from DELETE was not what I expected!\nreturnCode = ' + str(returnCode) + '\nPlease make a note of what you were attempting to do and the returnCode and contact the author!')
