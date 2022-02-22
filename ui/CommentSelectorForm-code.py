@@ -233,47 +233,51 @@ def afterInitAll(self):
 
 
 def buildCommentDictList(self, bizobj):
-    app = self.Application
-    self.CommentDictList = [{'Name':'A','Caption':'A','Comment':'','Box':self.dCheckBoxA},
-                            {'Name':'B','Caption':'B','Comment':'','Box':self.dCheckBoxB},
-                            {'Name':'C','Caption':'C','Comment':'','Box':self.dCheckBoxC},
-                            {'Name':'D','Caption':'D','Comment':'','Box':self.dCheckBoxD},
-                            {'Name':'E','Caption':'E','Comment':'','Box':self.dCheckBoxE},
-                            {'Name':'F','Caption':'F','Comment':'','Box':self.dCheckBoxF},
-                            {'Name':'G','Caption':'G','Comment':'','Box':self.dCheckBoxG},
-                            {'Name':'H','Caption':'H','Comment':'','Box':self.dCheckBoxH},
-                            {'Name':'I','Caption':'I','Comment':'','Box':self.dCheckBoxI},
-                            {'Name':'J','Caption':'J','Comment':'','Box':self.dCheckBoxJ},
-                            {'Name':'K','Caption':'K','Comment':'','Box':self.dCheckBoxK},
-                            {'Name':'L','Caption':'L','Comment':'','Box':self.dCheckBoxL},
-                            {'Name':'M','Caption':'M','Comment':'','Box':self.dCheckBoxM},
-                            {'Name':'N','Caption':'N','Comment':'','Box':self.dCheckBoxN},
-                            {'Name':'O','Caption':'O','Comment':'','Box':self.dCheckBoxO},
-                            {'Name':'P','Caption':'P','Comment':'','Box':self.dCheckBoxP},
-                            {'Name':'Q','Caption':'Q','Comment':'','Box':self.dCheckBoxQ},
-                            {'Name':'R','Caption':'R','Comment':'','Box':self.dCheckBoxR},
-                            {'Name':'S','Caption':'S','Comment':'','Box':self.dCheckBoxS},
-                            {'Name':'T','Caption':'T','Comment':'','Box':self.dCheckBoxT},
-                            {'Name':'U','Caption':'U','Comment':'','Box':self.dCheckBoxU},
-                            {'Name':'V','Caption':'V','Comment':'','Box':self.dCheckBoxV},
-                            {'Name':'W','Caption':'W','Comment':'','Box':self.dCheckBoxW},
-                            {'Name':'X','Caption':'X','Comment':'','Box':self.dCheckBoxX},
-                            {'Name':'Y','Caption':'Y','Comment':'','Box':self.dCheckBoxY},
-                            {'Name':'Z','Caption':'Z','Comment':'','Box':self.dCheckBoxZ},
-                            {'Name':'1','Caption':self.lessonShortName + 'Greeting','Comment':'','Box':self.GreetingCheckBox},
-                            {'Name':'2','Caption':self.lessonShortName + 'Closing','Comment':'','Box':self.ClosingCheckBox},
-                            {'Name':'3','Caption':'Failed','Comment':'','Box':self.FailedCheckBox},
-                            {'Name':'4','Caption':'Incomplete','Comment':'','Box':self.IncompleteCheckBox},
-                            ]
-    self.lookupComments(self.CommentDictList, bizobj, self.TextTags)
-    for item in self.CommentDictList:
-        box = item['Box']
-        box.Tag == item['Name']
-        box.Caption = item['Caption']
-        box.ToolTipText = item['Comment']
-        if box.ToolTipText == '':
-            box.Visible = False
-
+    try:
+        app = self.Application
+        #self.Form.Bizobj = bizobj
+        self.CommentDictList = [{'Name':'A','Caption':'A','Comment':'','Box':self.dCheckBoxA},
+                                {'Name':'B','Caption':'B','Comment':'','Box':self.dCheckBoxB},
+                                {'Name':'C','Caption':'C','Comment':'','Box':self.dCheckBoxC},
+                                {'Name':'D','Caption':'D','Comment':'','Box':self.dCheckBoxD},
+                                {'Name':'E','Caption':'E','Comment':'','Box':self.dCheckBoxE},
+                                {'Name':'F','Caption':'F','Comment':'','Box':self.dCheckBoxF},
+                                {'Name':'G','Caption':'G','Comment':'','Box':self.dCheckBoxG},
+                                {'Name':'H','Caption':'H','Comment':'','Box':self.dCheckBoxH},
+                                {'Name':'I','Caption':'I','Comment':'','Box':self.dCheckBoxI},
+                                {'Name':'J','Caption':'J','Comment':'','Box':self.dCheckBoxJ},
+                                {'Name':'K','Caption':'K','Comment':'','Box':self.dCheckBoxK},
+                                {'Name':'L','Caption':'L','Comment':'','Box':self.dCheckBoxL},
+                                {'Name':'M','Caption':'M','Comment':'','Box':self.dCheckBoxM},
+                                {'Name':'N','Caption':'N','Comment':'','Box':self.dCheckBoxN},
+                                {'Name':'O','Caption':'O','Comment':'','Box':self.dCheckBoxO},
+                                {'Name':'P','Caption':'P','Comment':'','Box':self.dCheckBoxP},
+                                {'Name':'Q','Caption':'Q','Comment':'','Box':self.dCheckBoxQ},
+                                {'Name':'R','Caption':'R','Comment':'','Box':self.dCheckBoxR},
+                                {'Name':'S','Caption':'S','Comment':'','Box':self.dCheckBoxS},
+                                {'Name':'T','Caption':'T','Comment':'','Box':self.dCheckBoxT},
+                                {'Name':'U','Caption':'U','Comment':'','Box':self.dCheckBoxU},
+                                {'Name':'V','Caption':'V','Comment':'','Box':self.dCheckBoxV},
+                                {'Name':'W','Caption':'W','Comment':'','Box':self.dCheckBoxW},
+                                {'Name':'X','Caption':'X','Comment':'','Box':self.dCheckBoxX},
+                                {'Name':'Y','Caption':'Y','Comment':'','Box':self.dCheckBoxY},
+                                {'Name':'Z','Caption':'Z','Comment':'','Box':self.dCheckBoxZ},
+                                {'Name':'1','Caption':self.lessonShortName + 'Greeting','Comment':'','Box':self.GreetingCheckBox},
+                                {'Name':'2','Caption':self.lessonShortName + 'Closing','Comment':'','Box':self.ClosingCheckBox},
+                                {'Name':'3','Caption':'Failed','Comment':'','Box':self.FailedCheckBox},
+                                {'Name':'4','Caption':'Incomplete','Comment':'','Box':self.IncompleteCheckBox},
+                                ]
+        self.lookupComments(self.CommentDictList, bizobj, self.TextTags)
+        for item in self.CommentDictList:
+            box = item['Box']
+            box.Tag == item['Name']
+            box.Caption = item['Caption']
+            box.ToolTipText = item['Comment']
+            if box.ToolTipText == '':
+                box.Visible = False
+        return True
+    except:
+        return False
 
 def clearCommentCheckBoxes(self):
     app = self.Application

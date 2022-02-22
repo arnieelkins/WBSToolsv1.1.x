@@ -89,7 +89,7 @@ class StudentsBizobj(dabo.biz.dBizobj):
         """Returning anything other than an empty string from
         this method will prevent the data from being saved.
         """
-        #app = self.Application
+        app = self.Application
         status = self.getRecordStatus()
         print 'FORM VALIDATION ============================'
         if 'StudentFirstName' in status or 'StudentLastName' in status:

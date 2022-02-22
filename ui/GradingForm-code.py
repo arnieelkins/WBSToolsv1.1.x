@@ -474,12 +474,14 @@ def openCommentSelectorForm(self):
             MissedString = 'nine'
         else:
             MissedString = str(NumberMissed)
+    else:
+        MissedString = str(NumberMissed)
     newForm.TextTags = ({'<ContactFullName>':self.gradeRecord['contactFullName'],
                         '<NumberOfQuestionsMissed>':MissedString,
                         '<ContactFirstName>':self.gradeRecord['contactFirstName'],
                         })
     newForm.lessonShortName = self.gradeRecord['lessonShortName']
-    newForm.buildCommentDictList(self.PrimaryBizobj)
+    print str(newForm.buildCommentDictList(self.PrimaryBizobj))
     newForm.SaveRestorePosition = True
     if self.FailedCheckBox.Value == True:
         newForm.FailedCheckBox.Value = True
