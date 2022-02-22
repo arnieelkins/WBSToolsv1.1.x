@@ -436,6 +436,7 @@ def onResetButton(self):
         self.IncompleteCheckBox.Value = False
     if self.FailedCheckBox.Value == True:
         self.FailedCheckBox.Value = False
+
         self.EnterGradeSpinner.Enabled = False
 
 
@@ -447,7 +448,7 @@ def onUpdate_HeaderOutBox(self, evt):
 def openCommentSelectorForm(self):
     app = self.Application
     print 'self.Form = ' + str(self.Form)
-    newForm = app.ui.CommentSelectorForm(self.Form, Modal=True)
+    tempForm = app.ui.CommentSelectorForm(parent=self.Form,  Modal=True, bogus=self, bizobj=self.Form.PrimaryBizobj)
     print "self.gradeRecord start"
     print self.gradeRecord
     print "self.gradeRecord end"
@@ -474,17 +475,21 @@ def openCommentSelectorForm(self):
             MissedString = 'nine'
         else:
             MissedString = str(NumberMissed)
+    newForm = tempForm.new()
     newForm.TextTags = ({'<ContactFullName>':self.gradeRecord['contactFullName'],
                         '<NumberOfQuestionsMissed>':MissedString,
                         '<ContactFirstName>':self.gradeRecord['contactFirstName'],
                         })
     newForm.lessonShortName = self.gradeRecord['lessonShortName']
-    newForm.buildCommentDictList(self.PrimaryBizobj)
+    newForm.buildCommentDictList()
     newForm.SaveRestorePosition = True
     if self.FailedCheckBox.Value == True:
         newForm.FailedCheckBox.Value = True
     if self.IncompleteCheckBox.Value == True:
         newForm.IncompleteCheckBox.Value = True
+    if self.lessonShortName == "Intro":
+        newForm.GreetingCheckBox.Value = True
+        newForm.ClosingCheckBox.Value = True
     newForm.CenterOnParent()
     newForm.show()
     if newForm.Accepted:
@@ -493,7 +498,7 @@ def openCommentSelectorForm(self):
         self.gradeRecord['commentString'] = newForm.ActiveCommentTextBox.getActiveCommentString()
         for char in self.gradeRecord['commentString']:
             print 'char = ' + str(char) + '\n'
-            for dict in newForm.ActiveCommentDict:
+            for dict in newForm.ActiveCommentDictList:
                 print "dict['letter'] = " + str(dict['letter'])
                 if char == dict['letter']:
                     self.gradeRecord['commentList'].append(dict['control'].Value)
@@ -955,6 +960,7 @@ def scoreWrongAnswers(self, answerCheckBoxList, answerDataSet):
                     else:
                         # one or more answers were provided, so compile a list
                         if boxAValue == True:
+
                             studentAnswer = 'A'
                         if boxBValue == True:
                             if len(studentAnswer) > 0:
