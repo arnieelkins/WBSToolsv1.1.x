@@ -51,8 +51,8 @@
 							<dCheckBox code-ID="dCheckBox-dPanel-995" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'Proportion': 1}" Name="dCheckBoxV" Caption="V" rowColPos="(7, 0)" Width="36" Tag="V" designerClass="controlMix" RegID="dCheckBoxV"></dCheckBox>
 							<dCheckBox code-ID="dCheckBox-dPanel-63" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'Proportion': 1}" Name="dCheckBoxW" Caption="W" rowColPos="(7, 1)" Width="36" Tag="W" designerClass="controlMix" RegID="dCheckBoxW"></dCheckBox>
 							<dCheckBox code-ID="dCheckBox-dPanel-629" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'Proportion': 1}" Name="dCheckBoxX" Caption="X" rowColPos="(7, 2)" Width="36" Tag="X" designerClass="controlMix" RegID="dCheckBoxX"></dCheckBox>
-							<dCheckBox code-ID="dCheckBox-dPanel-403" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'Proportion': 1}" Name="dCheckBoxZ" Caption="Z" rowColPos="(8, 1)" Width="36" Tag="Z" designerClass="controlMix" RegID="dCheckBoxZ"></dCheckBox>
 							<dCheckBox code-ID="dCheckBox-dPanel-334" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'Proportion': 1}" Name="dCheckBoxY" Caption="Y" rowColPos="(8, 0)" Width="36" Tag="Y" designerClass="controlMix" RegID="dCheckBoxY"></dCheckBox>
+							<dCheckBox code-ID="dCheckBox-dPanel-403" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'Proportion': 1}" Name="dCheckBoxZ" Caption="Z" rowColPos="(8, 1)" Width="36" Tag="Z" designerClass="controlMix" RegID="dCheckBoxZ"></dCheckBox>
 						</dGridSizer>
 					</dSizer>
 				</dSizer>

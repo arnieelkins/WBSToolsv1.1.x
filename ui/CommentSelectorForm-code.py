@@ -230,6 +230,12 @@ def afterInitAll(self):
         self.FailedCheckBox.raiseEvent(dabo.dEvents.Hit)
     if self.IncompleteCheckBox.Value == True:
         self.IncompleteCheckBox.raiseEvent(dabo.dEvents.Hit)
+    if self.lessonShortName == 'Intro':
+        self.GreetingCheckBox.Value = True
+        self.GreetingCheckBox.raiseEvent(dabo.dEvents.Hit)
+        self.ClosingCheckBox.Value = True
+        self.ClosingCheckBox.raiseEvent(dabo.dEvents.Hit)
+
 
 
 def buildCommentDictList(self, bizobj):
@@ -299,6 +305,7 @@ def initProperties(self):
     #self.Centered = True
 
 
+
 def lookupComments(self, dictList, bizObj, tagDict):
     print "lookupComments is running\n"
     if len(dictList) >= 1:
@@ -324,6 +331,7 @@ def lookupComments(self, dictList, bizObj, tagDict):
 def processSelected(self, evt):
     app = self.Application
     source = evt.EventObject
+    print evt
     # is box checked?
     if 'dCheckBox' in str(type(source)):
         print 'source = ' + str(source)
