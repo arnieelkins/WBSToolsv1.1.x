@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="cp1252" standalone="no"?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <dForm Name="dForm" SaveRestorePosition="False" Top="127" Caption="Dabo Class Designer" designerClass="DesForm" Left="440">
 	<dSizer SlotCount="1" designerClass="LayoutSizer" Orientation="Vertical">
 		<dPanel sizerInfo="{'HAlign': 'Left', 'VAlign': 'Top'}" designerClass="controlMix">

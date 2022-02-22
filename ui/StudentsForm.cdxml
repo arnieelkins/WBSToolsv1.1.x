@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="cp1252" standalone="no"?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <dForm code-ID="dForm-top" Name="dForm" Caption="Students Form" SaveRestorePosition="False" Top="369" Height="662" Width="774" designerClass="DesForm" CxnName="app.dbConnectionName" Left="893">
 	<dSizer SlotCount="1" designerClass="LayoutSizer" Orientation="Vertical">
 		<dPageFrame RegID="StudentFrame" sizerInfo="{'VAlign': 'Middle'}" designerClass="controlMix" Name="StudentFrame" PageCount="4">

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="cp1252" standalone="no"?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <dForm code-ID="dForm-top" Name="dForm" Caption="Grading Form" SaveRestorePosition="False" Top="63" Height="700" Width="859" designerClass="DesForm" CxnName="app.dbConnectionName" Left="338">
 	<dSizer SlotCount="1" designerClass="LayoutSizer" Orientation="Horizontal">
 		<dPanel sizerInfo="{'HAlign': 'Left', 'VAlign': 'Top'}" designerClass="controlMix" Name="GradingdPanel">
