@@ -15,12 +15,10 @@ def onValueChanged(self, evt):
     self.Form.autoSave()
 
 
-
 ## *!* ## Dabo Code ID: dDropdownList-dPanel-502
 def onValueChanged(self, evt):
     # TypeOfBaptism
     self.Form.autoSave()
-
 
 
 ## *!* ## Dabo Code ID: dButton-dPanel-63
@@ -29,12 +27,10 @@ def onHit(self, evt):
     self.Form.openAttachmentsForm()
 
 
-
 ## *!* ## Dabo Code ID: dTextBox-dPanel-806
 def onValueChanged(self, evt):
     # ChurchName
     self.Form.autoSave()
-
 
 
 ## *!* ## Dabo Code ID: dTextBox-dPanel-672
@@ -43,12 +39,10 @@ def onValueChanged(self, evt):
     self.Form.autoSave()
 
 
-
 ## *!* ## Dabo Code ID: dButton-dPanel-919
 def onHit(self, evt):
     # Upload button
     self.Form.onUploadButton()
-
 
 
 ## *!* ## Dabo Code ID: dButton-dPage-19
@@ -56,11 +50,9 @@ def onHit(self, evt):
     self.Form.prior()
 
 
-
 ## *!* ## Dabo Code ID: dButton-dPage-292
 def onHit(self, evt):
     self.Form.last()
-
 
 
 ## *!* ## Dabo Code ID: dTextBox-dPanel-963
@@ -69,11 +61,10 @@ def onValueChanged(self, evt):
     self.Form.autoSave()
 
 
-
 ## *!* ## Dabo Code ID: dDateTextBox-dPanel
-def onValueChanged(self, evt):
+#def onValueChanged(self, evt):
     # Birthdate
-    self.Form.autoSave()
+#    self.Form.autoSave()
 
 
 
@@ -86,12 +77,10 @@ def afterInitAll(self):
     self.Form.getBizobj('Contacts').requery()
 
 
-
 ## *!* ## Dabo Code ID: dDropdownList-dPanel-729
 def onValueChanged(self, evt):
     # HasBeenBaptized
     self.Form.autoSave()
-
 
 
 ## *!* ## Dabo Code ID: dDropdownList-dPanel-467
@@ -100,12 +89,10 @@ def onValueChanged(self, evt):
     self.Form.autoSave()
 
 
-
 ## *!* ## Dabo Code ID: dEditBox-dPanel-112
 def onValueChanged(self, evt):
     # Notes
     self.Form.autoSave()
-
 
 
 ## *!* ## Dabo Code ID: dDropdownList-dPanel-84
@@ -114,31 +101,26 @@ def onValueChanged(self, evt):
     self.Form.autoSave()
 
 
-
 ## *!* ## Dabo Code ID: dButton-dPage-625
 def onHit(self, evt):
     self.Form.next()
 
 
-
 ## *!* ## Dabo Code ID: dDropdownList-dPanel
 def afterInit(self):
-    # StudentContactRecNo
+    # StudentContactRecNo main form
     mybiz = self.Form.getBizobj('Contacts')
     (self.Choices, self.Keys) = mybiz.getAvailableTypes()
     self.update()
-
 
 def onMouseRightDown(self, evt):
     # right-click on Contact field should open Contacts form
     self.Form.openContactsForm()
     self.afterInit()
 
-
 def onValueChanged(self, evt):
     # StudentContactsRecNo
     self.Form.autoSave()
-
 
 
 ## *!* ## Dabo Code ID: dButton-dPanel-221
@@ -147,12 +129,10 @@ def onHit(self, evt):
     self.Form.requery()
 
 
-
 ## *!* ## Dabo Code ID: dTextBox-dPanel
 def onValueChanged(self, evt):
     # Age
     self.Form.autoSave()
-
 
 
 ## *!* ## Dabo Code ID: dTextBox-dPanel
@@ -170,11 +150,9 @@ def onGridMouseLeftDoubleClick(self, evt):
         self.Form.openGetFilesForContactForm(contactRecNo)
 
 
-
 ## *!* ## Dabo Code ID: dButton-dPage-868
 def onHit(self, evt):
     self.Form.requery()
-
 
 
 ## *!* ## Dabo Code ID: dButton-dPanel-360
@@ -192,12 +170,10 @@ def onHit(self, evt):
     self.Form.openPrintForm()
 
 
-
 ## *!* ## Dabo Code ID: dComboBox-dPanel
 def onValueChanged(self, evt):
     # Occupation
     self.Form.autoSave()
-
 
 
 ## *!* ## Dabo Code ID: dTextBox-dPanel-102
@@ -206,18 +182,15 @@ def onValueChanged(self, evt):
     self.Form.autoSave()
 
 
-
 ## *!* ## Dabo Code ID: dDropdownList-dPanel-487
 def onValueChanged(self, evt):
     # RequestedBaptism
     self.Form.autoSave()
 
 
-
 ## *!* ## Dabo Code ID: dButton-dPanel-131
 def onHit(self, evt):
     self.Form.last()
-
 
 
 ## *!* ## Dabo Code ID: dButton-dPanel-771
@@ -241,12 +214,10 @@ def onHit(self, evt):
     self.Form.requery()
 
 
-
 ## *!* ## Dabo Code ID: dDropdownList-dPanel-19
 def onValueChanged(self, evt):
     # MaritalStatus
     self.Form.autoSave()
-
 
 
 ## *!* ## Dabo Code ID: dEditBox-dPanel-364
@@ -255,16 +226,15 @@ def onValueChanged(self, evt):
     self.Form.autoSave()
 
 
-
 ## *!* ## Dabo Code ID: dTextBox-dPanel-169
 def onValueChanged(self, evt):
     # City
     self.Form.autoSave()
 
 
-
 ## *!* ## Dabo Code ID: dButton-dPage-602
 def onHit(self, evt):
+    #Save student button
     try:
         returnCode = str(self.Form.save())
         if returnCode is None or returnCode is True:
@@ -302,33 +272,28 @@ def onHit(self, evt):
         self.Form.requery()
 
 
-
 ## *!* ## Dabo Code ID: dTextBox-dPanel-660
 def onValueChanged(self, evt):
     # StudentFirstName
     self.Form.autoSave()
 
 
-
 ## *!* ## Dabo Code ID: dDropdownList-dPanel-141
 def afterInit(self):
-    # StudentTeachersRecNo
+    # StudentTeachersRecNo - main form
     mybiz = self.Form.getBizobj('Teachers')
     (self.Choices, self.Keys) = mybiz.getAvailableTypes()
     print self.Choices, self.Keys
     self.update()
-
 
 def onMouseRightDown(self, evt):
     # right-click on Teacher field should open the Teachers form
     self.Form.openTeachersForm()
     self.afterInit()
 
-
 def onValueChanged(self, evt):
     # StudentTeachersRecNo
     self.Form.autoSave()
-
 
 
 ## *!* ## Dabo Code ID: dButton-dPage
@@ -405,19 +370,16 @@ def onHit(self, evt):
             self.Form.StudentTablePage.showContainingPage()
 
 
-
 ## *!* ## Dabo Code ID: dButton-dPanel-376
 def onHit(self, evt):
     # Delete grade button
     self.Form.deleteGrade()
 
 
-
 ## *!* ## Dabo Code ID: dTextBox-dPanel-69
 def onValueChanged(self, evt):
     #State
     self.Form.autoSave()
-
 
 
 ## *!* ## Dabo Code ID: dDropdownList-dPage
@@ -431,7 +393,6 @@ def afterInit(self):
     self.update()
 
 
-
 ## *!* ## Dabo Code ID: dGrid-dPage
 def onGridMouseLeftDoubleClick(self, evt):
     if self.CurrentRow >= 0:
@@ -439,12 +400,10 @@ def onGridMouseLeftDoubleClick(self, evt):
         self.Form.StudentDataPage.showContainingPage()
 
 
-
 ## *!* ## Dabo Code ID: dTextBox-dPanel-959
 def onValueChanged(self, evt):
     # Email
     self.Form.autoSave()
-
 
 
 ## *!* ## Dabo Code ID: dButton-dPanel-985
@@ -462,8 +421,6 @@ def onHit(self, evt):
         dabo.ui.exclaim("Uh oh, something went wrong!  Better check the log file!" + str(traceback.format_exc()))
 
 
-
-
 ## *!* ## Dabo Code ID: dButton-dPage-839
 def onHit(self, evt):
     # Clear button
@@ -479,11 +436,9 @@ def onHit(self, evt):
     self.Form.requery()
 
 
-
 ## *!* ## Dabo Code ID: dButton-dPage-191
 def onHit(self, evt):
     self.Form.first()
-
 
 
 ## *!* ## Dabo Code ID: dEditBox-dPanel
@@ -492,12 +447,10 @@ def onValueChanged(self, evt):
     self.Form.autoSave()
 
 
-
 ## *!* ## Dabo Code ID: dTextBox-dPanel-561
 def onValueChanged(self, evt):
     # StudentsLastName
     self.Form.autoSave()
-
 
 
 ## *!* ## Dabo Code ID: dTextBox-dPanel-185
@@ -506,11 +459,9 @@ def onValueChanged(self, evt):
     self.Form.autoSave()
 
 
-
 ## *!* ## Dabo Code ID: dButton-dPanel-367
 def onHit(self, evt):
     self.Form.next()
-
 
 
 ## *!* ## Dabo Code ID: dButton-dPanel-466
@@ -518,11 +469,9 @@ def onHit(self, evt):
     self.Form.first()
 
 
-
 ## *!* ## Dabo Code ID: dButton-dPanel-160
 def onHit(self, evt):
     self.Form.prior()
-
 
 
 ## *!* ## Dabo Code ID: dGrid-dPanel
@@ -534,11 +483,9 @@ def afterInitAll(self):
     # self.Columns[4].Visible = True
     self.update()
 
-
 def initProperties(self):
     self.SaveRestorePosition = True
     self.SelectionMode = 'Row'
-
 
 def onGridCellEdited(self, evt):
     # save the grade data if the user edits anything
@@ -554,15 +501,12 @@ def onGridCellEdited(self, evt):
         dabo.ui.exclaim("Uh oh, something went wrong!  Better check the log file!" + str(traceback.format_exc()))
 
 
-
-
 ## *!* ## Dabo Code ID: dButton-dPanel-165
 def onHit(self, evt):
     # Delete button
     print 'bizobj deleteChildLogic == ' + str(self.Form.PrimaryBizobj.deleteChildLogic) + '\n'
     self.Form.delete(dataSource='Students')
     self.Form.requery()
-
 
 
 ## *!* ## Dabo Code ID: dDropdownList-dPage-242
@@ -576,19 +520,16 @@ def afterInit(self):
     self.update()
 
 
-
 ## *!* ## Dabo Code ID: dTextBox-dPanel-357
 def onValueChanged(self, evt):
     # Phone2
     self.Form.autoSave()
 
 
-
 ## *!* ## Dabo Code ID: dButton-dPanel
 def onHit(self, evt):
     # New Student button
     self.Form.addStudent()
-
 
 
 ## *!* ## Dabo Code ID: dForm-top

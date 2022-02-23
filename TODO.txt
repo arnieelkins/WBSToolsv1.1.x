@@ -35,16 +35,24 @@ this would not be practical.  While it needs to be fixed, it is now a lower prio
 Requirements.txt file needs to be populated with ALL the requirements necessary to run the app from 
 source, as well as compile the program to an executable for Windows. While in theory it is possible to
 run the program from the source on Mac and Linux, I do not have a working solution for packaging the app
-for thos platforms. It is very likely that this will never happen, as the application is using too many
-tools that are not supported in Python 2 because Python 2 is EOL, and there is no interest on the part of
+for those platforms. It is very likely that this will never happen, as the application is using too many
+tools that are no longer supported in Python 2 because Python 2 is EOL, and there is no interest on the part of
 either myself or the providers of the tools to make them work with Python 2. The only users requesting 
-the application on the MacOS were from Mayfair, and they had indicated that they were going to have to 
+the application on the MacOS were from Mayfair, and they had indicated several years ago that they were going to have to 
 migrate to another application, because they did not have the ability to make changes to my code.
 The reason for updating the requirements file is to make it relatively simple to recreate the environment
 needed for further modification of the application. In addition to the requirements file, I need to gather
 and store in Git the files necessary to build said environment. Many of the tools have been updated well
 past the versions that work with the others, ie. the dabo framwork and Python 2.7.6. I know for a fact
 that later versions of Python, including 2.7.9, are NOT compatible.
+
+==========
+AWE 2022-22-2
+If you delete a Grade record, the program should first check to see if there is a related Attachment, and if so, possibly
+delete it.  Need to check with the user on this. There are two scenarios. One is just deleting a Grade record manually from
+the GUI (in Students form or from the table view) The second is overwriting an existing Grade record, which happens if
+the new record and the existing record are for the same lesson. I would think we would want the Attachment to be deleted, 
+and only keep the new one, but the users will have the final say.
 
 ==========
 Current user requests as of 2022-02-11:
@@ -74,9 +82,9 @@ Current user requests as of 2022-02-11:
     value will not be desiplayed. The DB code stores nulls, but the control will not allow them, so null = 0.  Since this is a
     limitation imposed by the framework, the only real solution is to replace dSpinner with another control.
 
-3. OBSOLETE BirthDate field removed for StudentsForm 2022-02-19 AWE - user indicated that they do not use this information.  Need to remove field from Student form. Birthday does not save.
-    --this seems odd, as I recall trying to convince people that age could be computed if the DOB was
-    provided, which would stay up to date as the student aged. However, this seems to have saved to the DOB
+3. OBSOLETE -- BirthDate field removed for StudentsForm 2022-02-19 AWE - user indicated that they do not use this information.  
+    Need to remove field from Student form. Birthday does not save.--this seems odd, as I recall trying to convince people that
+    age could be computed if the DOB was provided, which would stay up to date as the student aged. However, this seems to have saved to the DOB
     in the past, so I do not understand why it would have changed. -- 2022-02-13 ETA - The code seems to work. 
     Will check with users on this, as entering a date manually or selecting from the calendar popup both work for me
     assuming the date is valid.
