@@ -80,10 +80,8 @@ if sys.platform == "darwin":
     dabo.MDI = True
     # hack for locale error on OSX
     import locale
-    print "imported locale"
     print locale.getdefaultlocale()
     locale.setlocale(locale.LC_ALL, "en_US.UTF-8")
-    print "locale.setlocale successful"
     print locale.getdefaultlocale()
 
 app.ui.AnswersForm = dabo.ui.createClass("ui" + os.sep + "AnswersForm.cdxml")
@@ -100,6 +98,7 @@ app.ui.PrintOrPreviewForm = dabo.ui.createClass("ui" + os.sep + "PrintOrPreviewF
 app.ui.LessonSelector = dabo.ui.createClass("ui" + os.sep + "LessonSelector.cdxml")
 app.ui.CommentSelectorForm = dabo.ui.createClass("ui" + os.sep + "CommentSelectorForm.cdxml")
 app.ui.DuplicateStudentForm = dabo.ui.createClass("ui" + os.sep + "DuplicateStudentForm.cdxml")
+app.ui.OccupationsForm = dabo.ui.createClass("ui" + os.sep + "OccupationsForm.cdxml")
 app.DefaultForm = app.ui.StudentsForm
 app.FormsToOpen = [app.DefaultForm]
 app.startupForms()

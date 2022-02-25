@@ -38,8 +38,8 @@
 										<dDropdownList code-ID="dDropdownList-dPanel" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'Expand': True}" ValueMode="key" Name="ContactDropdownList" rowColPos="(3, 1)" Choices="[]" designerClass="controlMix" DataSource="Students" RegID="ContactDropdownList" DataField="StudentContactsRecNo"></dDropdownList>
 										<dDropdownList code-ID="dDropdownList-dPanel-141" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'Expand': True}" ValueMode="key" Name="TeacherDropdownList" rowColPos="(4, 1)" Choices="[]" designerClass="controlMix" DataSource="Students" RegID="TeacherDropdownList" DataField="StudentTeachersRecNo"></dDropdownList>
 										<dDropdownList code-ID="dDropdownList-dPanel-467" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'HAlign': 'Left'}" Name="GenderDropdownList" rowColPos="(5, 1)" Choices="[u&apos;&apos;, u&apos;M&apos;, u&apos;F&apos;]" Width="40" designerClass="controlMix" DataSource="Students" RegID="GenderDropdownList" DataField="StudentGender"></dDropdownList>
-										<dComboBox code-ID="dComboBox-dPanel" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'Expand': True}" Name="OccupationComboBox" rowColPos="(6, 1)" Choices="[u&apos;&apos;, u&apos;student&apos;]" designerClass="controlMix" DataField="StudentOccupation" AppendOnEnter="True" RegID="OccupationComboBox" DataSource="Students"></dComboBox>
-										<dLabel sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'HAlign': 'Right', 'VAlign': 'Bottom'}" Name="RecordNumberLabel" TabStop="False" rowColPos="(0, 2)" Caption="Record Number:" designerClass="controlMix"></dLabel>
+										<dComboBox code-ID="dComboBox-dPanel" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'Expand': True}" ValueMode="key" Name="OccupationComboBox" rowColPos="(6, 1)" Choices="[]" designerClass="controlMix" RegID="OccupationComboBox" DataSource="Students" DataField="StudentOccupationRecNo"></dComboBox>
+										<dLabel sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'HAlign': 'Right', 'VAlign': 'Bottom'}" Name="RecordNumberLabel" TabStop="False" rowColPos="(0, 2)" Caption="Record Number:" designerClass="controlMi2x"></dLabel>
 										<dLabel Caption="WBS ID:" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'HAlign': 'Right'}" designerClass="controlMix" rowColPos="(1, 2)"></dLabel>
 										<dLabel Caption="Age:" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'HAlign': 'Right'}" designerClass="controlMix" Name="AgeLabel" rowColPos="(2, 2)"></dLabel>
 										<dLabel Caption="Marital Status:" sizerInfo="{'RowSpan': 1, 'ColSpan': 1, 'HAlign': 'Right'}" designerClass="controlMix" Name="MaritalStatusLabel" rowColPos="(4, 2)"></dLabel>
@@ -151,7 +151,7 @@
 						<dColumn Caption="Age" DataField="StudentAge" designerClass="controlMix" Order="70" Width="80"></dColumn>
 						<dColumn Caption="MaritalStatus" DataField="StudentMaritalStatus" designerClass="controlMix" Order="90" Width="105"></dColumn>
 						<dColumn Caption="Gender" DataField="StudentGender" designerClass="controlMix" Order="100" Width="80"></dColumn>
-						<dColumn Caption="Occupation" DataField="StudentOccupation" designerClass="controlMix" Order="110" Width="94"></dColumn>
+						<dColumn Caption="Occupation" DataField="OccupationName" designerClass="controlMix" Order="110" Width="94"></dColumn>
 						<dColumn Caption="Religion" DataField="StudentReligion" designerClass="controlMix" Order="120" Width="80"></dColumn>
 						<dColumn Caption="ChurchName" DataField="StudentChurchName" designerClass="controlMix" Order="130" Width="103"></dColumn>
 						<dColumn Caption="HasBeenBaptized" DataField="StudentHasBeenBaptized" designerClass="controlMix" Order="140" Width="129"></dColumn>

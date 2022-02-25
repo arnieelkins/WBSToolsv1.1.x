@@ -48,7 +48,6 @@ def afterInitAll(self):
 
 def createBizobjs(self):
     app = self.Application
-
     lessonsBizobj = app.biz.LessonsBizobj(app.dbConnection)
     self.addBizobj(lessonsBizobj)
 
@@ -62,27 +61,8 @@ def fillFileOpenMenu(self):
     fileMenu.prependMenu(MenFileOpen(fileMenu))
 
 
-def fillReportsMenu(self):
-    """Add the Reports menu."""
-    from dabo.dLocalize import _
-    app = self.Application
-    from ui.MenReports import MenReports
-    menReports = MenReports()
-
-    # We want the reports menu right after the View menu:
-    idx = self.MenuBar.getMenuIndex(_("View"))
-    if idx is None:
-        # punt:
-        idx = 2
-    idx += 1
-    self.MenuBar.insertMenu(idx, menReports)
-
-
 def setupMenu(self):
     self.fillFileOpenMenu()
-    #self.fillReportsMenu()
-
-
 
 
 ## *!* ## Dabo Code ID: dButton-dPanel

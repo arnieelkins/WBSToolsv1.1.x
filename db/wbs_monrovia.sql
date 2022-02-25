@@ -141,7 +141,7 @@ CREATE TABLE `Students` (
   `StudentPhone1` varchar(45) DEFAULT NULL,
   `StudentPhone2` varchar(45) DEFAULT NULL,
   `StudentStreetAddress` varchar(255) DEFAULT NULL,
-  `StudentOccupation` varchar(45) DEFAULT NULL,
+  `OccupationName` varchar(45) DEFAULT NULL,
   `StudentHasBeenBaptized` enum('','Yes','No') DEFAULT NULL,
   `StudentBaptismType` enum('','Immersed','Sprinkled','Poured','Other') DEFAULT NULL,
   `StudentRequestedBaptism` enum('','Yes','No') DEFAULT NULL,

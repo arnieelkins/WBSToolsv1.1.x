@@ -37,7 +37,7 @@ class StudentsBizobj(dabo.biz.dBizobj):
         self.addField("StudentHasBible")
         self.addField("StudentPostalAddress")
         self.addField("StudentStreetAddress")
-        self.addField("StudentOccupation")
+        self.addField("OccupationName")
         self.addJoin("Contacts", "StudentContactsRecNo = ContactRecNo")
         self.addField("ContactFirstName")
         self.addField("ContactLastName")

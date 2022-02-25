@@ -29,6 +29,7 @@ class MenFileOpen(dabo.ui.dMenu):
                 ("Contacts Form", app.ui.ContactsForm),
                 ("Grades Form", app.ui.GradesForm),
                 ("Lessons Form", app.ui.LessonsForm),
+                ("Occupations Form", app.ui.OccupationsForm),
                 ("Students Form", app.ui.StudentsForm),
                 ("Teachers Form", app.ui.TeachersForm),
                 )

@@ -62,7 +62,7 @@ def getIntroGradingFormDataSet(bizObj, recordNumber):
         concat(ContactFirstName, ' ', ContactLastName) as ContactFullName, StudentAge, \
         StudentBaptismType, StudentHasBible, StudentBirthDate, StudentChurchName, StudentContactsRecNo,\
         StudentCountry, StudentEmailAddress, StudentFirstName, StudentGender, StudentHasBeenBaptized,\
-        StudentID, StudentLastName, StudentMaritalStatus, StudentNotes, StudentOccupation, StudentPhone1,\
+        StudentID, StudentLastName, StudentMaritalStatus, StudentNotes, OccupationName, StudentPhone1,\
         StudentPhone2, StudentPostalAddress, StudentRecNo, StudentReligion, StudentRequestedBaptism, \
         StudentState, StudentStreetAddress, StudentTeachersRecNo, StudentTown, StudentWBSBefore, \
         StudentWBSID, GradeData, GradeStudentsRecNo FROM Teachers, Contacts, Students left join \

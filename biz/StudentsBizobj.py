@@ -42,6 +42,9 @@ class StudentsBizobj(dabo.biz.dBizobj):
         self.addField("StudentPostalAddress")
         self.addField("StudentStreetAddress")
         self.addField("StudentOccupation")
+        self.addField("StudentOccupationRecNo")
+        self.addJoin("Occupations", "StudentOccupationRecNo = OccupationRecNo")
+        self.addField("OccupationName")
         self.addJoin("Contacts", "StudentContactsRecNo = ContactRecNo")
         self.addField("ContactFirstName")
         self.addField("ContactLastName")
@@ -55,8 +58,7 @@ class StudentsBizobj(dabo.biz.dBizobj):
         self.DefaultValues = {"StudentID":None,
                                 "StudentTeachersRecNo": 1,
                                 "StudentContactsRecNo": 1,
-                                "StudentBirthdate": '',
-                                "StudentAge": 0,
+                                "StudentOccupationRecNo": 1,
                                 "StudentWBSID": 'AL-091',}
         #set bizobj to ignore referential integrity when deleting a child record
         self.deleteChildLogic = 1

@@ -61,13 +61,6 @@ def onValueChanged(self, evt):
     self.Form.autoSave()
 
 
-## *!* ## Dabo Code ID: dDateTextBox-dPanel
-#def onValueChanged(self, evt):
-    # Birthdate
-#    self.Form.autoSave()
-
-
-
 ## *!* ## Dabo Code ID: dPage-dPageFrame
 def afterInitAll(self):
     # Get Files For Contact page
@@ -171,6 +164,21 @@ def onHit(self, evt):
 
 
 ## *!* ## Dabo Code ID: dComboBox-dPanel
+def afterInit(self):
+    # OccupationsRecNo - main form
+    print 'Occupations ComboBox'
+    app = self.Application
+    occupationsBizobj = app.biz.OccupationsBizobj(app.dbConnection)
+    self.Form.addBizobj(occupationsBizobj)
+    (self.Choices, self.Keys) = occupationsBizobj.getAvailableTypes()
+    self.update()
+
+def onMouseRightDown(self, evt):
+    # OccupationsRecNo - main form
+    # right-click on Occupations field should open the Occupations form
+    self.Form.openOccupationsForm()
+    self.afterInit()
+
 def onValueChanged(self, evt):
     # Occupation
     self.Form.autoSave()
@@ -234,10 +242,10 @@ def onValueChanged(self, evt):
 
 ## *!* ## Dabo Code ID: dButton-dPage-602
 def onHit(self, evt):
-    #Save student button
+    #Save button - NOT main form??
     try:
-        returnCode = str(self.Form.save())
-        if returnCode is None or returnCode is True:
+        returnCode = self.Form.save()
+        if returnCode is None or returnCode == True:
             dlg = dabo.ui.info('Save successful!')
             self.Form.update()
         else:
@@ -264,8 +272,8 @@ def onHit(self, evt):
         bizObj.setFieldVal("GradeDateGraded", currentDate)
         bizObj.setFieldVal("GradeLessonsRecNo", choiceDict[lesson])
         try:
-            result = str(bizObj.save())
-            if result != '' or result != None:
+            result = bizObj.save()
+            if result == True or result is None:
                 dlg = dabo.ui.info('Save successsful')
         except dException, e:
             dabo.ui.exclaim("Uh oh, something went wrong!  Better check the log file!" + str(traceback.format_exc(e)))
@@ -287,12 +295,13 @@ def afterInit(self):
     self.update()
 
 def onMouseRightDown(self, evt):
+    # StudentTeachersRecNo - main form
     # right-click on Teacher field should open the Teachers form
     self.Form.openTeachersForm()
     self.afterInit()
 
 def onValueChanged(self, evt):
-    # StudentTeachersRecNo
+    # StudentTeachersRecNo - main form
     self.Form.autoSave()
 
 
@@ -408,15 +417,9 @@ def onValueChanged(self, evt):
 
 ## *!* ## Dabo Code ID: dButton-dPanel-985
 def onHit(self, evt):
-    # Save Button
+    # Save Studnet button - main form
     try:
-        returnCode = str(self.Form.save())
-        if returnCode is None or returnCode is True:
-            dlg = dabo.ui.info('Save successful!')
-            self.Form.update()
-        else:
-            dabo.ui.exclaim('Save NOT successful!\nreturnCode = ' + returnCode + '\nPlease make a note of what you were attempting to do and the returnCode and contact the author!')
-            return()
+        returnCode = self.Form.save()
     except:
         dabo.ui.exclaim("Uh oh, something went wrong!  Better check the log file!" + str(traceback.format_exc()))
 
@@ -490,7 +493,7 @@ def initProperties(self):
 def onGridCellEdited(self, evt):
     # save the grade data if the user edits anything
     try:
-        returnCode = str(self.Form.save())
+        returnCode = self.Form.save()
         if returnCode is None or returnCode is True:
             dlg = dabo.ui.info('Save successful!')
             self.Form.update()
@@ -670,7 +673,7 @@ def onUploadButton(self):
     studentRecNo = studentBizobj.Record.StudentRecNo
     contactRecNo = studentBizobj.Record.StudentContactsRecNo
     result = dabo.ui.getFile(multiple=True)
-    if not result is None or result is True:
+    if not result is None:
         for filePath in result:
             (pathOnly, attachmentName) = os.path.split(filePath)
             timeStamp = datetime.datetime.now()

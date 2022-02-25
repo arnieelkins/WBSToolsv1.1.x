@@ -111,7 +111,7 @@ class GrdStudents(GrdBase):
                 Caption=biz.getColCaption("StreetAddress"),
                 Sortable=True, Searchable=True, Editable=False))
 
-        self.addColumn(dabo.ui.dColumn(self, DataField="Occupation", 
+        self.addColumn(dabo.ui.dColumn(self, DataField="OccupationName", 
                 Caption=biz.getColCaption("Occupation"),
                 Sortable=True, Searchable=True, Editable=False))
 

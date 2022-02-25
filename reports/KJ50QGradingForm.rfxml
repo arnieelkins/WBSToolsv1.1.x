@@ -281,7 +281,7 @@
 						<y>'112.0 pt'</y>
 					</String>
 					<String>
-						<expr>self.StudentOccupation</expr>
+						<expr>self.OccupationName</expr>
 						<fontname>'Helvetica-Bold'</fontname>
 						<height>16</height>
 						<height_def>16</height_def>
